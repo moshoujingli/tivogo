@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
+		6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */; };
+		6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
+		6AB45C2C183D1E3200FB6D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C2A183D1E3200FB6D2A /* InfoPlist.strings */; };
+		6AB45C2E183D1E3200FB6D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C2D183D1E3200FB6D2A /* main.m */; };
+		6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */; };
+		6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */; };
+		6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */; };
+		6AB45C3B183D1E3200FB6D2A /* TVGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */; };
+		6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C3C183D1E3200FB6D2A /* Images.xcassets */; };
+		6AB45C44183D1E3200FB6D2A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C43183D1E3200FB6D2A /* XCTest.framework */; };
+		6AB45C45183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
+		6AB45C46183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
+		6AB45C4E183D1E3200FB6D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C4C183D1E3200FB6D2A /* InfoPlist.strings */; };
+		6AB45C50183D1E3200FB6D2A /* TivoGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C4F183D1E3200FB6D2A /* TivoGoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6AB45C47183D1E3200FB6D2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AB45C16183D1E3200FB6D2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AB45C1D183D1E3200FB6D2A;
+			remoteInfo = TivoGo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6AB45C1E183D1E3200FB6D2A /* TivoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TivoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AB45C21183D1E3200FB6D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6AB45C25183D1E3200FB6D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6AB45C29183D1E3200FB6D2A /* TivoGo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TivoGo-Info.plist"; sourceTree = "<group>"; };
+		6AB45C2B183D1E3200FB6D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6AB45C2D183D1E3200FB6D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6AB45C2F183D1E3200FB6D2A /* TivoGo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TivoGo-Prefix.pch"; sourceTree = "<group>"; };
+		6AB45C30183D1E3200FB6D2A /* TVGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGAppDelegate.h; sourceTree = "<group>"; };
+		6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGAppDelegate.m; sourceTree = "<group>"; };
+		6AB45C34183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		6AB45C37183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		6AB45C39183D1E3200FB6D2A /* TVGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGViewController.h; sourceTree = "<group>"; };
+		6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGViewController.m; sourceTree = "<group>"; };
+		6AB45C3C183D1E3200FB6D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6AB45C42183D1E3200FB6D2A /* TivoGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TivoGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AB45C43183D1E3200FB6D2A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6AB45C4B183D1E3200FB6D2A /* TivoGoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TivoGoTests-Info.plist"; sourceTree = "<group>"; };
+		6AB45C4D183D1E3200FB6D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6AB45C4F183D1E3200FB6D2A /* TivoGoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TivoGoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AB45C1B183D1E3200FB6D2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */,
+				6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */,
+				6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB45C3F183D1E3200FB6D2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C44183D1E3200FB6D2A /* XCTest.framework in Frameworks */,
+				6AB45C46183D1E3200FB6D2A /* UIKit.framework in Frameworks */,
+				6AB45C45183D1E3200FB6D2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AB45C15183D1E3200FB6D2A = {
+			isa = PBXGroup;
+			children = (
+				6AB45C27183D1E3200FB6D2A /* TivoGo */,
+				6AB45C49183D1E3200FB6D2A /* TivoGoTests */,
+				6AB45C20183D1E3200FB6D2A /* Frameworks */,
+				6AB45C1F183D1E3200FB6D2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6AB45C1F183D1E3200FB6D2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C1E183D1E3200FB6D2A /* TivoGo.app */,
+				6AB45C42183D1E3200FB6D2A /* TivoGoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AB45C20183D1E3200FB6D2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C21183D1E3200FB6D2A /* Foundation.framework */,
+				6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */,
+				6AB45C25183D1E3200FB6D2A /* UIKit.framework */,
+				6AB45C43183D1E3200FB6D2A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AB45C27183D1E3200FB6D2A /* TivoGo */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C30183D1E3200FB6D2A /* TVGAppDelegate.h */,
+				6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */,
+				6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */,
+				6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */,
+				6AB45C39183D1E3200FB6D2A /* TVGViewController.h */,
+				6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */,
+				6AB45C3C183D1E3200FB6D2A /* Images.xcassets */,
+				6AB45C28183D1E3200FB6D2A /* Supporting Files */,
+			);
+			path = TivoGo;
+			sourceTree = "<group>";
+		};
+		6AB45C28183D1E3200FB6D2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C29183D1E3200FB6D2A /* TivoGo-Info.plist */,
+				6AB45C2A183D1E3200FB6D2A /* InfoPlist.strings */,
+				6AB45C2D183D1E3200FB6D2A /* main.m */,
+				6AB45C2F183D1E3200FB6D2A /* TivoGo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AB45C49183D1E3200FB6D2A /* TivoGoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C4F183D1E3200FB6D2A /* TivoGoTests.m */,
+				6AB45C4A183D1E3200FB6D2A /* Supporting Files */,
+			);
+			path = TivoGoTests;
+			sourceTree = "<group>";
+		};
+		6AB45C4A183D1E3200FB6D2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AB45C4B183D1E3200FB6D2A /* TivoGoTests-Info.plist */,
+				6AB45C4C183D1E3200FB6D2A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AB45C1D183D1E3200FB6D2A /* TivoGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AB45C53183D1E3200FB6D2A /* Build configuration list for PBXNativeTarget "TivoGo" */;
+			buildPhases = (
+				6AB45C1A183D1E3200FB6D2A /* Sources */,
+				6AB45C1B183D1E3200FB6D2A /* Frameworks */,
+				6AB45C1C183D1E3200FB6D2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TivoGo;
+			productName = TivoGo;
+			productReference = 6AB45C1E183D1E3200FB6D2A /* TivoGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AB45C41183D1E3200FB6D2A /* TivoGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AB45C56183D1E3200FB6D2A /* Build configuration list for PBXNativeTarget "TivoGoTests" */;
+			buildPhases = (
+				6AB45C3E183D1E3200FB6D2A /* Sources */,
+				6AB45C3F183D1E3200FB6D2A /* Frameworks */,
+				6AB45C40183D1E3200FB6D2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AB45C48183D1E3200FB6D2A /* PBXTargetDependency */,
+			);
+			name = TivoGoTests;
+			productName = TivoGoTests;
+			productReference = 6AB45C42183D1E3200FB6D2A /* TivoGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AB45C16183D1E3200FB6D2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TVG;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = BiXiaopeng;
+				TargetAttributes = {
+					6AB45C41183D1E3200FB6D2A = {
+						TestTargetID = 6AB45C1D183D1E3200FB6D2A;
+					};
+				};
+			};
+			buildConfigurationList = 6AB45C19183D1E3200FB6D2A /* Build configuration list for PBXProject "TivoGo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6AB45C15183D1E3200FB6D2A;
+			productRefGroup = 6AB45C1F183D1E3200FB6D2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AB45C1D183D1E3200FB6D2A /* TivoGo */,
+				6AB45C41183D1E3200FB6D2A /* TivoGoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AB45C1C183D1E3200FB6D2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */,
+				6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */,
+				6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */,
+				6AB45C2C183D1E3200FB6D2A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB45C40183D1E3200FB6D2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C4E183D1E3200FB6D2A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AB45C1A183D1E3200FB6D2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C3B183D1E3200FB6D2A /* TVGViewController.m in Sources */,
+				6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */,
+				6AB45C2E183D1E3200FB6D2A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB45C3E183D1E3200FB6D2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AB45C50183D1E3200FB6D2A /* TivoGoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AB45C48183D1E3200FB6D2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AB45C1D183D1E3200FB6D2A /* TivoGo */;
+			targetProxy = 6AB45C47183D1E3200FB6D2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6AB45C2A183D1E3200FB6D2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AB45C2B183D1E3200FB6D2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AB45C34183D1E3200FB6D2A /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AB45C37183D1E3200FB6D2A /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		6AB45C4C183D1E3200FB6D2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AB45C4D183D1E3200FB6D2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6AB45C51183D1E3200FB6D2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6AB45C52183D1E3200FB6D2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6AB45C54183D1E3200FB6D2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
+				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6AB45C55183D1E3200FB6D2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
+				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6AB45C57183D1E3200FB6D2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TivoGo.app/TivoGo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TivoGoTests/TivoGoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6AB45C58183D1E3200FB6D2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TivoGo.app/TivoGo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
+				INFOPLIST_FILE = "TivoGoTests/TivoGoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AB45C19183D1E3200FB6D2A /* Build configuration list for PBXProject "TivoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AB45C51183D1E3200FB6D2A /* Debug */,
+				6AB45C52183D1E3200FB6D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AB45C53183D1E3200FB6D2A /* Build configuration list for PBXNativeTarget "TivoGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AB45C54183D1E3200FB6D2A /* Debug */,
+				6AB45C55183D1E3200FB6D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6AB45C56183D1E3200FB6D2A /* Build configuration list for PBXNativeTarget "TivoGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AB45C57183D1E3200FB6D2A /* Debug */,
+				6AB45C58183D1E3200FB6D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AB45C16183D1E3200FB6D2A /* Project object */;
+}
