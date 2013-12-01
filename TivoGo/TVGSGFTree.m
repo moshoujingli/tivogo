@@ -25,58 +25,6 @@
 @synthesize nodeTreeArray=_nodeTreeArray;
 @synthesize prevGenNode=_prevGenNode;
 
--(MoveInfo)pullNextMove{
-    MoveInfo move;
-    move.color=EMPTY;
-    move.comment=NULL;
-    SGFProperty *props;
-    if (self.useChild) {
-        self.curNode=self.curNode->child;
-    }else{
-        self.curNode=self.curNode->next;
-    }
-    if (self.curNode==NULL) {
-        return move;
-    }
-    
-    props=self.curNode->props;
-    SGFProperty *move_prop;
-    for (; props; props=props->next) {
-        switch (props->name) {
-            case SGFB:
-                move.color=BLACK;
-                move_prop = props;  /* remember it for later */
-                break;
-            case SGFW:
-                move.color=WHITE;
-                move_prop = props;  /* remember it for later */
-                break;
-            case SGFC:
-                move.comment=props->value;
-                break;
-            case SGFLB:
-                NSLog(@"lable! %s",props->value);
-                break;
-        }
-    }
-    if (move.color==EMPTY){
-        return move;
-    }
-    
-    move.x = get_moveX(move_prop, 19);
-    move.y = get_moveY(move_prop, 19);
-    
-    return move;
-}
--(MoveInfo)getPrevMove{
-    MoveInfo move;
-    return move;
-}
--(MoveInfo)getFirstMove{
-    self.curNode=self.sgftree.root;
-    return [self pullNextMove];
-}
-
 -(NSMutableDictionary *)gameInfo{
     if (_gameInfo==nil) {
         NSMutableDictionary *info = [[NSMutableDictionary alloc]init];
@@ -145,7 +93,6 @@
     node.nodeID=chain.count;
     node.props=props;
     if (isBranch) {
-        prevNode.otherVaris=[[NSMutableArray alloc]init];
         node.parentID=prevNode.parentID;
         [prevNode.otherVaris addObject:[NSNumber numberWithInteger:node.nodeID]];
     }else{
@@ -155,7 +102,7 @@
     
     [chain addObject:node];
     SGFNode *tmp=cNode;
-    while ((tmp=tmp->next)) {
+    while ((tmp=tmp->next)&&!isBranch) {
         [self fillMainChain:chain byNode:tmp byBranch:YES withPrevNode:node];
     }
     if (!cNode->child) {
