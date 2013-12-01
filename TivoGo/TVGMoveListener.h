@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @protocol TVGMoveListener <NSObject>
-
+-(int)notifyPlayer:(int)player moveAt:(NSString*) location;
 @end
