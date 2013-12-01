@@ -7,19 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef struct MoveInfo_t{
-    short color;
-    short x;
-    short y;
-    char* comment;
-}MoveInfo;
-
+#import "TVGMove.h"
 @interface TVGSGFProperty : NSObject
 @property (nonatomic)char * rawValue;
 @property   (nonatomic)int rawName;
-@property   (nonatomic)NSString *propName;
-@property   (nonatomic,readonly)MoveInfo propMove;
-@property   (nonatomic,readonly)NSString *propComment;
-
+@property (nonatomic,readonly)id propValue;
+@property   (nonatomic,readonly)NSString *propName;
 @end

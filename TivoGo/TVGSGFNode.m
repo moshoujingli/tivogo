@@ -9,8 +9,25 @@
 #import "TVGSGFNode.h"
 
 @implementation TVGSGFNode
+@synthesize otherVaris=_otherVaris;
+@synthesize isMoveNode=_isMoveNode;
+-(BOOL)isMoveNode{
+    return [self getPropertyByName:@"move"].count!=0;
+}
+-(NSArray *)otherVaris{
+    if (!_otherVaris) {
+        _otherVaris= [[NSMutableArray alloc]init];
+    }
+    return _otherVaris;
+}
 -(NSArray *)getPropertyByName:(NSString *) name{
-    return nil;
+    NSMutableArray *rtnArr = [[NSMutableArray alloc]init];
+    for (TVGSGFProperty *pro in self.props) {
+        if ([pro.propName isEqualToString:name]) {
+            [rtnArr addObject:pro];
+        }
+    }
+    return rtnArr;
 }
 -(void)printPropertys{
     for (TVGSGFProperty *prop in self.props) {
