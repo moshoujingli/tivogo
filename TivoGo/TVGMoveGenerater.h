@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TVGMoveListener.h"
 @protocol TVGMoveGenerater <NSObject>
-
+-(int)registeMoveListener:(id<TVGMoveListener>)listener;
 @end

@@ -9,5 +9,15 @@
 #import "TVGSGFNode.h"
 
 @implementation TVGSGFNode
+-(NSArray *)getPropertyByName:(NSString *) name{
+    return nil;
+}
+-(void)printPropertys{
+    for (TVGSGFProperty *prop in self.props) {
+        NSLog(@"%d %@",prop.rawName,[[NSString alloc]initWithUTF8String:prop.rawValue]);
+    }
+}
+
+
 
 @end

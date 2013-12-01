@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TVGSGFNode.h"
+#import "TVGSGFProperty.h"
 
-@interface TVGSGFPlayer : NSObject
-
+@interface TVGSGFTree : NSObject
+@property (nonatomic,readonly)NSMutableDictionary *gameInfo;
+-(MoveInfo)pullNextMove;
+-(MoveInfo)getPrevMove;
+-(MoveInfo)getFirstMove;
+-(TVGSGFNode *)getNodeById:(int) nodeId;
+-(TVGSGFNode *)getRootNode;
+-(TVGSGFTree *)initWithFile:(NSString *)filePath;
+-(int)close;
 @end
