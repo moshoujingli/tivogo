@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TVGViewController : UIViewController
+@interface TVGMainPageViewController : UIViewController
 
 @end

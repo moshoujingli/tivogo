@@ -14,6 +14,11 @@
 		6A8664D0184B9549005D5944 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 6A8664CE184B9549005D5944 /* include */; };
 		6A8664D7184B9CFF005D5944 /* TVGMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664D6184B9CFF005D5944 /* TVGMove.m */; };
 		6A8664D8184B9CFF005D5944 /* TVGMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664D6184B9CFF005D5944 /* TVGMove.m */; };
+		6A8664DD184E0E4F005D5944 /* TVGWatchSGFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664DC184E0E4F005D5944 /* TVGWatchSGFViewController.m */; };
+		6A8664DE184E0E4F005D5944 /* TVGWatchSGFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664DC184E0E4F005D5944 /* TVGWatchSGFViewController.m */; };
+		6A8664E2184E252D005D5944 /* TVGBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664E1184E252D005D5944 /* TVGBoardView.m */; };
+		6A8664E3184E252D005D5944 /* TVGBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664E1184E252D005D5944 /* TVGBoardView.m */; };
+		6A8664E518537AA4005D5944 /* gnugo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8664E418537AA4005D5944 /* gnugo.a */; };
 		6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
 		6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */; };
 		6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
@@ -22,13 +27,12 @@
 		6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */; };
 		6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */; };
 		6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */; };
-		6AB45C3B183D1E3200FB6D2A /* TVGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */; };
+		6AB45C3B183D1E3200FB6D2A /* TVGMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C3A183D1E3200FB6D2A /* TVGMainPageViewController.m */; };
 		6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C3C183D1E3200FB6D2A /* Images.xcassets */; };
 		6AB45C44183D1E3200FB6D2A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C43183D1E3200FB6D2A /* XCTest.framework */; };
 		6AB45C45183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
 		6AB45C46183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
 		6AB45C4E183D1E3200FB6D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C4C183D1E3200FB6D2A /* InfoPlist.strings */; };
-		6AB45C5E183F92DC00FB6D2A /* gnugo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C5A183E69BF00FB6D2A /* gnugo.a */; };
 		6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */; };
 		6AB45C671840D86B00FB6D2A /* sgf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C661840D86B00FB6D2A /* sgf */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,11 @@
 		6A8664CE184B9549005D5944 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		6A8664D5184B9CFF005D5944 /* TVGMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVGMove.h; path = ../TVGMove.h; sourceTree = "<group>"; };
 		6A8664D6184B9CFF005D5944 /* TVGMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVGMove.m; path = ../TVGMove.m; sourceTree = "<group>"; };
+		6A8664DB184E0E4F005D5944 /* TVGWatchSGFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGWatchSGFViewController.h; sourceTree = "<group>"; };
+		6A8664DC184E0E4F005D5944 /* TVGWatchSGFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGWatchSGFViewController.m; sourceTree = "<group>"; };
+		6A8664E0184E252D005D5944 /* TVGBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGBoardView.h; sourceTree = "<group>"; };
+		6A8664E1184E252D005D5944 /* TVGBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGBoardView.m; sourceTree = "<group>"; };
+		6A8664E418537AA4005D5944 /* gnugo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gnugo.a; path = ../../../../go4ios/gnugolib/gnugo.a; sourceTree = "<group>"; };
 		6AB45C1E183D1E3200FB6D2A /* TivoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TivoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB45C21183D1E3200FB6D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,8 +73,8 @@
 		6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGAppDelegate.m; sourceTree = "<group>"; };
 		6AB45C34183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6AB45C37183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		6AB45C39183D1E3200FB6D2A /* TVGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGViewController.h; sourceTree = "<group>"; };
-		6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGViewController.m; sourceTree = "<group>"; };
+		6AB45C39183D1E3200FB6D2A /* TVGMainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGMainPageViewController.h; sourceTree = "<group>"; };
+		6AB45C3A183D1E3200FB6D2A /* TVGMainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGMainPageViewController.m; sourceTree = "<group>"; };
 		6AB45C3C183D1E3200FB6D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6AB45C42183D1E3200FB6D2A /* TivoGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TivoGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB45C43183D1E3200FB6D2A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -84,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AB45C5E183F92DC00FB6D2A /* gnugo.a in Frameworks */,
+				6A8664E518537AA4005D5944 /* gnugo.a in Frameworks */,
 				6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */,
 				6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */,
 				6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */,
@@ -104,6 +113,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A8664D9184E007A005D5944 /* boardcomp */ = {
+			isa = PBXGroup;
+			children = (
+				6A8664DF184E2505005D5944 /* uicomp */,
+			);
+			name = boardcomp;
+			sourceTree = "<group>";
+		};
+		6A8664DA184E0DDA005D5944 /* uicomp */ = {
+			isa = PBXGroup;
+			children = (
+				6A8664DB184E0E4F005D5944 /* TVGWatchSGFViewController.h */,
+				6A8664DC184E0E4F005D5944 /* TVGWatchSGFViewController.m */,
+			);
+			name = uicomp;
+			sourceTree = "<group>";
+		};
+		6A8664DF184E2505005D5944 /* uicomp */ = {
+			isa = PBXGroup;
+			children = (
+				6A8664E0184E252D005D5944 /* TVGBoardView.h */,
+				6A8664E1184E252D005D5944 /* TVGBoardView.m */,
+			);
+			name = uicomp;
+			sourceTree = "<group>";
+		};
 		6AB45C15183D1E3200FB6D2A = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +162,7 @@
 		6AB45C20183D1E3200FB6D2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A8664E418537AA4005D5944 /* gnugo.a */,
 				6AB45C5A183E69BF00FB6D2A /* gnugo.a */,
 				6AB45C21183D1E3200FB6D2A /* Foundation.framework */,
 				6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */,
@@ -139,6 +175,7 @@
 		6AB45C27183D1E3200FB6D2A /* TivoGo */ = {
 			isa = PBXGroup;
 			children = (
+				6A8664D9184E007A005D5944 /* boardcomp */,
 				6AB45C6A1840FDF800FB6D2A /* goutil */,
 				6AB45C601840C74F00FB6D2A /* sgfcomp */,
 				6AB45C5F1840C74300FB6D2A /* gocomp */,
@@ -146,8 +183,8 @@
 				6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */,
 				6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */,
 				6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */,
-				6AB45C39183D1E3200FB6D2A /* TVGViewController.h */,
-				6AB45C3A183D1E3200FB6D2A /* TVGViewController.m */,
+				6AB45C39183D1E3200FB6D2A /* TVGMainPageViewController.h */,
+				6AB45C3A183D1E3200FB6D2A /* TVGMainPageViewController.m */,
 				6AB45C3C183D1E3200FB6D2A /* Images.xcassets */,
 				6AB45C28183D1E3200FB6D2A /* Supporting Files */,
 			);
@@ -196,6 +233,7 @@
 		6AB45C601840C74F00FB6D2A /* sgfcomp */ = {
 			isa = PBXGroup;
 			children = (
+				6A8664DA184E0DDA005D5944 /* uicomp */,
 				6A8664D5184B9CFF005D5944 /* TVGMove.h */,
 				6A8664D6184B9CFF005D5944 /* TVGMove.m */,
 				6AB45C631840CAA700FB6D2A /* TVGSGFTree.h */,
@@ -317,13 +355,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AB45C3B183D1E3200FB6D2A /* TVGViewController.m in Sources */,
+				6AB45C3B183D1E3200FB6D2A /* TVGMainPageViewController.m in Sources */,
 				6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */,
 				6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */,
 				6A8664D7184B9CFF005D5944 /* TVGMove.m in Sources */,
 				6A8664C01849DA34005D5944 /* TVGSGFProperty.m in Sources */,
+				6A8664DD184E0E4F005D5944 /* TVGWatchSGFViewController.m in Sources */,
 				6AB45C2E183D1E3200FB6D2A /* main.m in Sources */,
 				6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */,
+				6A8664E2184E252D005D5944 /* TVGBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A8664D8184B9CFF005D5944 /* TVGMove.m in Sources */,
+				6A8664E3184E252D005D5944 /* TVGBoardView.m in Sources */,
+				6A8664DE184E0E4F005D5944 /* TVGWatchSGFViewController.m in Sources */,
 				6A8664C21849E17F005D5944 /* TVGSGFTreeTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,14 +507,11 @@
 				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/bixiaopeng/project/go4ios/gnugolib/include,
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Users/bixiaopeng/project/32go/alllib/include/**",
 				);
 				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/bixiaopeng/project/32go/alllib/**",
-					/Users/bixiaopeng/project/32go/alllib,
-				);
+				LIBRARY_SEARCH_PATHS = /Users/bixiaopeng/project/go4ios/gnugolib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -487,14 +526,11 @@
 				GCC_PREFIX_HEADER = "TivoGo/TivoGo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/bixiaopeng/project/go4ios/gnugolib/include,
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Users/bixiaopeng/project/32go/alllib/include/**",
 				);
 				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/bixiaopeng/project/32go/alllib/**",
-					/Users/bixiaopeng/project/32go/alllib,
-				);
+				LIBRARY_SEARCH_PATHS = /Users/bixiaopeng/project/go4ios/gnugolib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

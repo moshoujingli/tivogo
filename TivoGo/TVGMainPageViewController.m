@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 BiXiaopeng. All rights reserved.
 //
 
-#import "TVGViewController.h"
+#import "TVGMainPageViewController.h"
 
-@interface TVGViewController ()
+@interface TVGMainPageViewController ()
 
 @end
 
-@implementation TVGViewController
+@implementation TVGMainPageViewController
 
 - (void)viewDidLoad
 {
