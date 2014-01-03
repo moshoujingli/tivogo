@@ -9,7 +9,7 @@
 #import "TVGWatchSGFViewController.h"
 
 @interface TVGWatchSGFViewController ()
-
+@property (nonatomic)NSMutableArray *sgfFileListDataSrc;
 @end
 
 @implementation TVGWatchSGFViewController
@@ -24,12 +24,13 @@
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"now is %@",searchText);
+    [self changeListByKeyWord:searchText];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.sgfSearchBar.delegate = self;
+    [self changeListByKeyWord:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,5 +39,16 @@
     // Dispose of any resources that can be recreated.
     
 }
+-(void)changeListByKeyWord:(NSString *)keyword{
+    
+    [self.sgfFileList reloadData];
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return  [self.sgfFileListDataSrc count];
+}
+
 
 @end
