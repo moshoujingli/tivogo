@@ -7,12 +7,14 @@
 //
 
 #import "TVGAppDelegate.h"
+#import "gnugo.h"
 
 @implementation TVGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    init_gnugo(32, arc4random()%320000);
     return YES;
 }
 							
