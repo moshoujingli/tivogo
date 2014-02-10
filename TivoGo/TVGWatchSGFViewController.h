@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TVGBoardView.h"
+#import "TVGSGFTree.h"
 @interface TVGWatchSGFViewController : UIViewController <UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sgfTitle;
 @property (weak, nonatomic) IBOutlet UILabel *sgfDetail;

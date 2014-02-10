@@ -90,6 +90,22 @@
     }
     NSLog(@"%f",gnugo_estimate_score(NULL, NULL));
 }
+-(void)testGameInfo{
+    Gameinfo gameinfo;
+    gnugo_clear_board(19);
+    gameinfo_clear(&gameinfo);
+    NSLog(@"%d",gameinfo.to_move);
+    gnugo_play_move(POS(3, 3), BLACK);
+    NSLog(@"%d",gameinfo.to_move);
+    gnugo_play_move(POS(3, 4), WHITE);
+    NSLog(@"%d",gameinfo.to_move);
+    gnugo_play_move(POS(16,16), BLACK);
+    NSLog(@"%d",gameinfo.to_move);
+    gnugo_play_move(POS(16, 17), WHITE);
+    NSLog(@"%d",gameinfo.to_move);
+}
+-(void)testStaticApi{
+}
 
 
 @end

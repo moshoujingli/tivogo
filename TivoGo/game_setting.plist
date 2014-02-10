@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>chinese_rule</key>
+	<false/>
+	<key>count_time</key>
+	<false/>
+	<key>komi</key>
+	<false/>
+	<key>handycap</key>
+	<integer>0</integer>
+	<key>sound</key>
+	<false/>
+	<key>bgm</key>
+	<false/>
+</dict>
+</plist>
