@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A42BB8F187996810029889D /* game_setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42BB8E187996810029889D /* game_setting.plist */; };
 		6A5CC7901868676000D14DBE /* TVGPrintInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */; };
 		6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BC1849DA21005D5944 /* TVGSGFNode.m */; };
 		6A8664C01849DA34005D5944 /* TVGSGFProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BF1849DA34005D5944 /* TVGSGFProperty.m */; };
@@ -22,6 +23,7 @@
 		6A8664E518537AA4005D5944 /* gnugo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8664E418537AA4005D5944 /* gnugo.a */; };
 		6A8E4566185766CE0032BF48 /* TVGPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8E4565185766CE0032BF48 /* TVGPlayerController.m */; };
 		6A8E4567185766CE0032BF48 /* TVGPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8E4565185766CE0032BF48 /* TVGPlayerController.m */; };
+		6AA34E3A189183B50067BF37 /* TVGSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA34E39189183B50067BF37 /* TVGSetting.m */; };
 		6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
 		6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */; };
 		6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
@@ -38,8 +40,13 @@
 		6AB45C4E183D1E3200FB6D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C4C183D1E3200FB6D2A /* InfoPlist.strings */; };
 		6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */; };
 		6AB45C671840D86B00FB6D2A /* sgf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C661840D86B00FB6D2A /* sgf */; };
+		6ABA9A1A18A7D281006A0434 /* Board_pad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A1818A7D281006A0434 /* Board_pad.png */; };
+		6ABA9A1B18A7D281006A0434 /* Board_padx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A1918A7D281006A0434 /* Board_padx2.png */; };
+		6ABA9A2318A93D89006A0434 /* black_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2218A93D89006A0434 /* black_piece.png */; };
+		6ABA9A2518A93DD1006A0434 /* white_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2418A93DD1006A0434 /* white_piece.png */; };
 		6AC822B318730F2F00AF1C74 /* TVGGnugoAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC822B218730F2F00AF1C74 /* TVGGnugoAPITest.m */; };
 		6AC822B418731DE900AF1C74 /* gnugo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8664E418537AA4005D5944 /* gnugo.a */; };
+		6AC822B8187711F600AF1C74 /* TVGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC822B7187711F600AF1C74 /* TVGSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A42BB8E187996810029889D /* game_setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = game_setting.plist; sourceTree = "<group>"; };
 		6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPrintInfoTest.m; sourceTree = "<group>"; };
 		6A8664BB1849DA21005D5944 /* TVGSGFNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSGFNode.h; sourceTree = "<group>"; };
 		6A8664BC1849DA21005D5944 /* TVGSGFNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSGFNode.m; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 		6A8664E418537AA4005D5944 /* gnugo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gnugo.a; path = ../../../../go4ios/gnugolib/gnugo.a; sourceTree = "<group>"; };
 		6A8E4564185766CE0032BF48 /* TVGPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGPlayerController.h; sourceTree = "<group>"; };
 		6A8E4565185766CE0032BF48 /* TVGPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPlayerController.m; sourceTree = "<group>"; };
+		6AA34E38189183B50067BF37 /* TVGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSetting.h; sourceTree = "<group>"; };
+		6AA34E39189183B50067BF37 /* TVGSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSetting.m; sourceTree = "<group>"; };
 		6AB45C1E183D1E3200FB6D2A /* TivoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TivoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB45C21183D1E3200FB6D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,13 +98,18 @@
 		6AB45C43183D1E3200FB6D2A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6AB45C4B183D1E3200FB6D2A /* TivoGoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TivoGoTests-Info.plist"; sourceTree = "<group>"; };
 		6AB45C4D183D1E3200FB6D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6AB45C5A183E69BF00FB6D2A /* gnugo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gnugo.a; path = ../../../../32go/alllib/gnugo.a; sourceTree = "<group>"; };
 		6AB45C611840C7CB00FB6D2A /* TVGMoveListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGMoveListener.h; sourceTree = "<group>"; };
 		6AB45C621840C97400FB6D2A /* TVGMoveGenerater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGMoveGenerater.h; sourceTree = "<group>"; };
 		6AB45C631840CAA700FB6D2A /* TVGSGFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSGFTree.h; sourceTree = "<group>"; };
 		6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSGFTree.m; sourceTree = "<group>"; };
 		6AB45C661840D86B00FB6D2A /* sgf */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sgf; sourceTree = "<group>"; };
+		6ABA9A1818A7D281006A0434 /* Board_pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Board_pad.png; sourceTree = "<group>"; };
+		6ABA9A1918A7D281006A0434 /* Board_padx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Board_padx2.png; sourceTree = "<group>"; };
+		6ABA9A2218A93D89006A0434 /* black_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_piece.png; sourceTree = "<group>"; };
+		6ABA9A2418A93DD1006A0434 /* white_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_piece.png; sourceTree = "<group>"; };
 		6AC822B218730F2F00AF1C74 /* TVGGnugoAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGGnugoAPITest.m; sourceTree = "<group>"; };
+		6AC822B6187711F600AF1C74 /* TVGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSettingViewController.h; sourceTree = "<group>"; };
+		6AC822B7187711F600AF1C74 /* TVGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +169,8 @@
 			children = (
 				6A8E4564185766CE0032BF48 /* TVGPlayerController.h */,
 				6A8E4565185766CE0032BF48 /* TVGPlayerController.m */,
+				6AC822B6187711F600AF1C74 /* TVGSettingViewController.h */,
+				6AC822B7187711F600AF1C74 /* TVGSettingViewController.m */,
 			);
 			name = playcomp;
 			sourceTree = "<group>";
@@ -182,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				6A8664E418537AA4005D5944 /* gnugo.a */,
-				6AB45C5A183E69BF00FB6D2A /* gnugo.a */,
 				6AB45C21183D1E3200FB6D2A /* Foundation.framework */,
 				6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */,
 				6AB45C25183D1E3200FB6D2A /* UIKit.framework */,
@@ -194,6 +210,7 @@
 		6AB45C27183D1E3200FB6D2A /* TivoGo */ = {
 			isa = PBXGroup;
 			children = (
+				6ABA9A1518A7CC9D006A0434 /* res */,
 				6A8E4563185766330032BF48 /* playcomp */,
 				6A8664D9184E007A005D5944 /* boardcomp */,
 				6AB45C6A1840FDF800FB6D2A /* goutil */,
@@ -214,6 +231,7 @@
 		6AB45C28183D1E3200FB6D2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A42BB8E187996810029889D /* game_setting.plist */,
 				6AB45C29183D1E3200FB6D2A /* TivoGo-Info.plist */,
 				6AB45C2A183D1E3200FB6D2A /* InfoPlist.strings */,
 				6AB45C2D183D1E3200FB6D2A /* main.m */,
@@ -271,8 +289,21 @@
 		6AB45C6A1840FDF800FB6D2A /* goutil */ = {
 			isa = PBXGroup;
 			children = (
+				6AA34E38189183B50067BF37 /* TVGSetting.h */,
+				6AA34E39189183B50067BF37 /* TVGSetting.m */,
 			);
 			name = goutil;
+			sourceTree = "<group>";
+		};
+		6ABA9A1518A7CC9D006A0434 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				6ABA9A1818A7D281006A0434 /* Board_pad.png */,
+				6ABA9A2218A93D89006A0434 /* black_piece.png */,
+				6ABA9A1918A7D281006A0434 /* Board_padx2.png */,
+				6ABA9A2418A93DD1006A0434 /* white_piece.png */,
+			);
+			name = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,11 +383,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A42BB8F187996810029889D /* game_setting.plist in Resources */,
+				6ABA9A1B18A7D281006A0434 /* Board_padx2.png in Resources */,
 				6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */,
 				6A8664CF184B9549005D5944 /* include in Resources */,
+				6ABA9A2518A93DD1006A0434 /* white_piece.png in Resources */,
 				6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */,
+				6ABA9A1A18A7D281006A0434 /* Board_pad.png in Resources */,
 				6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */,
 				6AB45C671840D86B00FB6D2A /* sgf in Resources */,
+				6ABA9A2318A93D89006A0434 /* black_piece.png in Resources */,
 				6AB45C2C183D1E3200FB6D2A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +415,7 @@
 			files = (
 				6A8E4566185766CE0032BF48 /* TVGPlayerController.m in Sources */,
 				6AB45C3B183D1E3200FB6D2A /* TVGMainPageViewController.m in Sources */,
+				6AC822B8187711F600AF1C74 /* TVGSettingViewController.m in Sources */,
 				6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */,
 				6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */,
 				6A8664D7184B9CFF005D5944 /* TVGMove.m in Sources */,
@@ -386,6 +423,7 @@
 				6A8664DD184E0E4F005D5944 /* TVGWatchSGFViewController.m in Sources */,
 				6AB45C2E183D1E3200FB6D2A /* main.m in Sources */,
 				6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */,
+				6AA34E3A189183B50067BF37 /* TVGSetting.m in Sources */,
 				6A8664E2184E252D005D5944 /* TVGBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

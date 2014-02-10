@@ -11,5 +11,6 @@
 #import "TVGBoardView.h"
 @interface TVGPlayerController : UIViewController
 @property (weak, nonatomic) IBOutlet TVGBoardView *board;
-
+@property (weak, nonatomic) IBOutlet UILabel *opponentLabel;
+@property  (nonatomic)NSString* isSingle;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "gnugo.h"
 
 @interface TVGAppDelegate : UIResponder <UIApplicationDelegate>
 
