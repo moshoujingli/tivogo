@@ -8,6 +8,8 @@
 
 #import "TVGSettingViewController.h"
 #import "TVGSetting.h"
+#import "UIImage+Tint.h"
+
 @interface TVGSettingViewController ()
 
 @end
@@ -32,8 +34,14 @@
 self.countTime.on =     stg.useCountTime;
 self.komi.on    =stg.useKomi;
 self.sound.on=    stg.useSound;
+    self.useBlack.on = stg.useBlack;
     self.rule.selectedSegmentIndex = stg.isChineseRule?0:1;
-
+    UIImage *image = self.backBtn.image;
+    self.backBtn.image = [image imageWithTintColor:[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0]];
+    self.backBtn.userInteractionEnabled=YES;
+    UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backPushed:)];
+    [self.backBtn addGestureRecognizer:tapBack];
+    
 }
 
 
@@ -42,7 +50,7 @@ self.sound.on=    stg.useSound;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)backPushed:(UIButton *)sender {
+- (IBAction)backPushed:(id )sender {
     [self save];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -54,6 +62,7 @@ self.sound.on=    stg.useSound;
     stg.useSound=self.sound.on;
     NSLog(@"%d is set",self.rule.selectedSegmentIndex);
     stg.isChineseRule =(self.rule.selectedSegmentIndex==0);
+    stg.useBlack = self.useBlack.on;
     [stg flush];
 }
 

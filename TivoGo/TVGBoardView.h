@@ -12,9 +12,20 @@
 #define PIECE_OUTSIDE_SPEC (BASE_OUT_SPEC+INSIDE_BOARD_WIDTH+OUT_BOARD_WIDTH+1)
 #import <UIKit/UIKit.h>
 #import "gnugo.h"
+
+@protocol RemoveDelegate <NSObject>
+@required
+-(void)eatOccur;
+
+@end
+
+
 @interface TVGBoardView : UIView
 @property   (nonatomic)CGFloat spec;
+@property (nonatomic)id<RemoveDelegate> removeDelegate;
 -(BOOL)setPiece:(int)color at:(int)x and:(int)y;
 -(void)indicate:(int)color at:(int)x and:(int)y;
--(void)undo:(int)step;
+-(BOOL)undo:(int)step;
+-(void)sync;
 @end
+
