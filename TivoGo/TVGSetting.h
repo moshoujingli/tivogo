@@ -15,6 +15,7 @@
 @property (nonatomic)BOOL useBGM;
 @property (nonatomic)BOOL useSound;
 @property (nonatomic)BOOL firstOpen;
+@property (nonatomic)BOOL useBlack;
 -(void)flush;
 +(TVGSetting *)getInstnce;
 @end

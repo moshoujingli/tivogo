@@ -12,7 +12,8 @@
 @synthesize otherVaris=_otherVaris;
 @synthesize isMoveNode=_isMoveNode;
 -(BOOL)isMoveNode{
-    return [self getPropertyByName:@"move"].count!=0;
+    _isMoveNode = [self getPropertyByName:@"move"].count!=0;
+    return _isMoveNode;
 }
 -(NSArray *)otherVaris{
     if (!_otherVaris) {

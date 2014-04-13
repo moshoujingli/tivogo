@@ -17,6 +17,8 @@
 @property (nonatomic)UIImage *blackPiece;
 @property (nonatomic)UIImage *whitePiece;
 @property (nonatomic)UIImage *board;
+@property (nonatomic)int lastPlayPointPos;
+@property (nonatomic)int lastPlayPointColor;
 @end
 
 @implementation TVGBoardView
@@ -37,34 +39,52 @@
     self.board = [UIImage imageNamed:@"Board_pad.png"];
     self.blackPiece = [UIImage imageNamed:@"black_piece.png"];
     self.whitePiece = [UIImage imageNamed:@"white_piece.png"];
+    self.lastPlayPointPos = -1;
 }
 
 -(BOOL)setPiece:(int)color at:(int)x and: (int)y{
-    NSLog(@"%d,%d this is %d",x,y,BOARD(x, y));
+    //NSLog(@"%d,%d this is %d",x,y,BOARD(x, y));
+    if (color==PASS_MOVE) {
+        return YES;
+    }
     if (IS_STONE(BOARD(x, y))) {
         NSLog(@"not empty");
         return NO;
     }
     gnugo_play_move(POS(x, y), color);
     self.boardToShow[POS(x, y)]=color;
-    if (memcmp(board, self.boardToShow,sizeof(board))) {
+    int cpr = memcmp(board, self.boardToShow,sizeof(board));
+    if (cpr) {
         memcpy(self.boardToShow, board, sizeof(board));
+        if (cpr<0&&self.removeDelegate) {
+            [self.removeDelegate eatOccur];
+        }
     }
+    self.lastPlayPointPos = POS(x, y);
+    self.lastPlayPointColor = color;
     [self setNeedsDisplay];
     return YES;
 }
+
 -(void)indicate:(int)color at:(int)x and:(int)y{
-    self.indicatePos=CGPointMake(PIECE_OUTSIDE_SPEC+self.spec*x, PIECE_OUTSIDE_SPEC+self.spec*y);
+    CGFloat lspec = self.spec;
+    self.indicatePos=CGPointMake(self.outside+lspec*x, self.outside+lspec*y);
     self.indicateColor=color;
     if (color!=EMPTY) {
         [self setNeedsDisplay];
     }
 }
 
--(void)undo:(int)step{
-    undo_move(step);
-    memcpy(self.boardToShow, board, sizeof(board));
-    [self setNeedsDisplay];
+-(BOOL)undo:(int)step{
+    int success = undo_move(step);
+    if (success) {
+        self.lastPlayPointPos=-1;
+        memcpy(self.boardToShow, board, sizeof(board));
+        [self setNeedsDisplay];
+        return YES;
+    }
+    return NO;
+
 }
 - (void)drawRect:(CGRect)rect
 {
@@ -74,6 +94,23 @@
     if (self.indicateColor) {
         [self drawPiece:context withColor:self.indicateColor at:self.indicatePos];
     }
+    if (self.lastPlayPointPos>=0) {
+        [self drawLastPlayIndicate:context at:self.lastPlayPointPos];
+    }
+}
+-(void)drawLastPlayIndicate:(CGContextRef)context at:(int) pos{
+    UIGraphicsPushContext(context);
+    CGFloat lspec = self.spec;
+    CGPoint loc = CGPointMake(self.outside+lspec*I(pos), self.outside+lspec*J(pos));
+    CGFloat radio = 2;
+    if (self.lastPlayPointColor==BLACK) {
+        [[UIColor whiteColor]setFill];
+    }else{
+        [[UIColor blackColor]setFill];
+    }
+    //[[[UIColor alloc]initWithRed:0 green:0.6 blue:0.8 alpha:1] setFill] ;
+    CGContextFillEllipseInRect(context,CGRectMake(loc.x-radio, loc.y-radio,radio*2 ,radio*2) );
+    UIGraphicsPopContext() ;
 }
 -(void)drawPieces:(CGContextRef) context{
     UIGraphicsPushContext(context);
@@ -114,42 +151,6 @@
     UIGraphicsPushContext(context);
     CGImageRef imgRef = self.board.CGImage;
     CGContextDrawImage(context,  CGRectMake(0, 0,self.frame.size.width ,self.frame.size.width), imgRef);
-
-//    [self drawBoardWidth:OUT_BOARD_WIDTH andSpecToSide:BASE_OUT_SPEC onContext:context];
-//    [self drawBoardWidth:INSIDE_BOARD_WIDTH andSpecToSide:BASE_OUT_SPEC+INSIDE_BOARD_WIDTH+OUT_BOARD_WIDTH onContext:context];
-//    //draw grid
-//    CGFloat startX = PIECE_OUTSIDE_SPEC;
-//    CGFloat startY = PIECE_OUTSIDE_SPEC;
-//    CGFloat lineEnd = self.frame.size.width-startX;
-//    CGFloat spec = (lineEnd-PIECE_OUTSIDE_SPEC)/(board_size-1);
-//    CGFloat curStart,sumSpec;
-//    for (int i=1; i<board_size-1; i++) {
-//        sumSpec = i*spec;
-//        CGContextBeginPath(context);
-//        curStart = startY+sumSpec;
-//        CGContextMoveToPoint(context, startX,curStart );
-//        CGContextAddLineToPoint(context, lineEnd, curStart);
-//        CGContextDrawPath(context, kCGPathStroke);
-//        CGContextBeginPath(context);
-//        curStart = startX+sumSpec;
-//        CGContextMoveToPoint(context, curStart,startY );
-//        CGContextAddLineToPoint(context, curStart, lineEnd);
-//        CGContextDrawPath(context, kCGPathStroke);
-//    }
-//    //draw star
-//    
-//    [[UIColor blackColor]setFill];
-//    CGFloat starSpec = startX+3*spec-3;
-//    CGFloat starDis = 6*spec;
-//    int x,y;
-//    CGFloat pX,pY;
-//    for (int i=0; i<9; i++) {
-//        x=i/3;
-//        y=i%3;
-//        pX=starSpec+x*starDis;
-//        pY=starSpec+y*starDis;
-//        CGContextFillEllipseInRect(context, CGRectMake(pX, pY, 6, 6));
-//    }
     UIGraphicsPopContext();
 }
 -(void)drawBoardWidth:(CGFloat)width andSpecToSide:(CGFloat)spec onContext:(CGContextRef) context{
@@ -163,6 +164,9 @@
     CGContextAddLineToPoint(context, boardWidth, spec);
     CGContextClosePath(context);
     CGContextDrawPath(context, kCGPathStroke);
+}
+-(void)sync{
+    memcpy(self.boardToShow, board, sizeof(board));
 }
 
 

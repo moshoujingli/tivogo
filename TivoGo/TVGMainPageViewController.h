@@ -10,5 +10,6 @@
 #import "gnugo.h"
 
 @interface TVGMainPageViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *infoBtn;
 
 @end

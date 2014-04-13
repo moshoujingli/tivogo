@@ -38,20 +38,24 @@ static TVGSetting *sInstance=nil;
 }
 
 -(BOOL)useBGM{
-    return    [self getBoolPropForKey:@"bgm" withDefault:NO];
+    return    [self getBoolPropForKey:@"bgm" withDefault:YES];
 }
 -(BOOL)useCountTime{
-    return    [self getBoolPropForKey:@"time" withDefault:NO];
+    return    [self getBoolPropForKey:@"time" withDefault:YES];
 }
 -(BOOL)useKomi{
-    return    [self getBoolPropForKey:@"komi" withDefault:NO];
+    return    [self getBoolPropForKey:@"komi" withDefault:YES];
 }
 -(BOOL)useSound{
-    return    [self getBoolPropForKey:@"sound" withDefault:NO];
+    return    [self getBoolPropForKey:@"sound" withDefault:YES];
 }
 -(BOOL)isChineseRule{
-    return    [self getBoolPropForKey:@"chinese" withDefault:NO];
+    return    [self getBoolPropForKey:@"chinese" withDefault:YES];
 }
+-(BOOL)useBlack{
+    return    [self getBoolPropForKey:@"useBlack" withDefault:YES];
+}
+
 -(BOOL)firstOpen{
     if ([self getBoolPropForKey:@"firstOpen" withDefault:YES]) {
         [self.storageDic setObject:[NSNumber numberWithBool:NO] forKey:@"firstOpen"];
@@ -76,6 +80,10 @@ static TVGSetting *sInstance=nil;
 -(void)setIsChineseRule:(BOOL)isChineseRule{
     [self.storageDic setObject:[NSNumber numberWithBool:isChineseRule] forKey:@"chinese"];
 }
+-(void)setUseBlack:(BOOL)useBlack{
+    [self.storageDic setObject:[NSNumber numberWithBool:useBlack] forKey:@"useBlack"];
+}
+
 
 -(BOOL)getBoolPropForKey:(NSString *)key withDefault:(BOOL)defVal{
     NSNumber* rtn = [self.storageDic objectForKey:key];

@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *countTime;
 @property (weak, nonatomic) IBOutlet UISwitch *bgm;
 @property (weak, nonatomic) IBOutlet UISwitch *sound;
+@property (weak, nonatomic) IBOutlet UIImageView *backBtn;
+@property (weak, nonatomic) IBOutlet UISwitch *useBlack;
 
 @end
