@@ -60,7 +60,6 @@ self.sound.on=    stg.useSound;
     stg.useCountTime=self.countTime.on;
     stg.useKomi=self.komi.on;
     stg.useSound=self.sound.on;
-    NSLog(@"%d is set",self.rule.selectedSegmentIndex);
     stg.isChineseRule =(self.rule.selectedSegmentIndex==0);
     stg.useBlack = self.useBlack.on;
     [stg flush];

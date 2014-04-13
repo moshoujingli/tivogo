@@ -11,6 +11,7 @@
 		6A11A31818FABB02002508BE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31618FABB02002508BE /* icon.png */; };
 		6A11A31918FABB02002508BE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31718FABB02002508BE /* icon@2x.png */; };
 		6A11A31B18FABF56002508BE /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31A18FABF56002508BE /* icon_80.png */; };
+		6A11A31D18FAE2AC002508BE /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31C18FAE2AC002508BE /* icon_40.png */; };
 		6A1BCDF118F6DA4E0071B7C1 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1BCDF018F6DA4E0071B7C1 /* prev.png */; };
 		6A42BB8F187996810029889D /* game_setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42BB8E187996810029889D /* game_setting.plist */; };
 		6A5CC7901868676000D14DBE /* TVGPrintInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */; };
@@ -90,6 +91,7 @@
 		6A11A31618FABB02002508BE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		6A11A31718FABB02002508BE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		6A11A31A18FABF56002508BE /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
+		6A11A31C18FAE2AC002508BE /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
 		6A1BCDF018F6DA4E0071B7C1 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
 		6A42BB8E187996810029889D /* game_setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = game_setting.plist; sourceTree = "<group>"; };
 		6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPrintInfoTest.m; sourceTree = "<group>"; };
@@ -119,8 +121,6 @@
 		6AB45C2F183D1E3200FB6D2A /* TivoGo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TivoGo-Prefix.pch"; sourceTree = "<group>"; };
 		6AB45C30183D1E3200FB6D2A /* TVGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGAppDelegate.h; sourceTree = "<group>"; };
 		6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGAppDelegate.m; sourceTree = "<group>"; };
-		6AB45C34183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		6AB45C37183D1E3200FB6D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		6AB45C39183D1E3200FB6D2A /* TVGMainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGMainPageViewController.h; sourceTree = "<group>"; };
 		6AB45C3A183D1E3200FB6D2A /* TVGMainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGMainPageViewController.m; sourceTree = "<group>"; };
 		6AB45C3C183D1E3200FB6D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -347,6 +347,7 @@
 		6ABA9A1518A7CC9D006A0434 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				6A11A31C18FAE2AC002508BE /* icon_40.png */,
 				6A11A31A18FABF56002508BE /* icon_80.png */,
 				6A11A31618FABB02002508BE /* icon.png */,
 				6A11A31718FABB02002508BE /* icon@2x.png */,
@@ -418,7 +419,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TVG;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = BiXiaopeng;
 				TargetAttributes = {
 					6AB45C1D183D1E3200FB6D2A = {
@@ -466,6 +467,7 @@
 				6A8664CF184B9549005D5944 /* include in Resources */,
 				6ABA9A3C18B1067F006A0434 /* snow.mp3 in Resources */,
 				6AF5A5A518EFF6250019BE36 /* icon-ios7-arrow-back-128.png in Resources */,
+				6A11A31D18FAE2AC002508BE /* icon_40.png in Resources */,
 				6A1BCDF118F6DA4E0071B7C1 /* prev.png in Resources */,
 				6ABA9A2518A93DD1006A0434 /* white_piece.png in Resources */,
 				6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */,
@@ -551,7 +553,6 @@
 		6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6AB45C34183D1E3200FB6D2A /* Base */,
 				6ABA9A2818AF5657006A0434 /* zh-Hans */,
 			);
 			name = Main_iPhone.storyboard;
@@ -560,7 +561,6 @@
 		6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6AB45C37183D1E3200FB6D2A /* Base */,
 				6ABA9A2C18AF5939006A0434 /* zh-Hans */,
 			);
 			name = Main_iPad.storyboard;
@@ -573,7 +573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -602,10 +602,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -613,7 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -636,10 +637,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -695,7 +698,6 @@
 		6AB45C57183D1E3200FB6D2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TivoGo.app/TivoGo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -727,7 +729,6 @@
 		6AB45C58183D1E3200FB6D2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TivoGo.app/TivoGo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
