@@ -2,20 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>默思围棋</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon.png</string>
 		<string>icon@2x.png</string>
 		<string>icon_80.png</string>
 	</array>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>zh_CN</string>
-	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
-	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>msjl.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.moshoujingli.msjl.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,23 +28,19 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
+	<key>LSMinimumSystemVersion</key>
+	<string>7.0</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
-	<key>UIMainStoryboardFile</key>
-	<string>Main_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

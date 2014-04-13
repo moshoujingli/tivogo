@@ -12,7 +12,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    init_gnugo(32, 17);
+    init_gnugo(32, arc4random()%2000);
 
     return YES;
 }
