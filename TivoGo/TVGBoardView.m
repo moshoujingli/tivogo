@@ -14,20 +14,23 @@
 @property   (nonatomic)CGPoint indicatePos;
 @property (nonatomic)CGFloat outside;
 @property Intersection *boardToShow;
+@property int *boardShowStepHint;
+@property int curStepCount;
 @property (nonatomic)UIImage *blackPiece;
 @property (nonatomic)UIImage *whitePiece;
 @property (nonatomic)UIImage *board;
 @property (nonatomic)int lastPlayPointPos;
 @property (nonatomic)int lastPlayPointColor;
+@property (nonatomic)BOOL needShowStepHint;
 @end
 
 @implementation TVGBoardView
+@synthesize curStepCount=_curStepCount;
 @synthesize lineEnd=_lineEnd;
 @synthesize spec=_spec;
 @synthesize outside=_outside;
 @synthesize indicateColor=_indicateColor;
 @synthesize indicatePos=_indicatePos;
-
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -35,11 +38,14 @@
     self.lineEnd = self.frame.size.width-PIECE_OUTSIDE_SPEC;
     self.spec = self.frame.size.width*0.05193;
     self.outside = self.frame.size.width*0.0332;
+    self.boardShowStepHint = (int *)calloc(BOARDSIZE, sizeof(int));
     self.boardToShow = (Intersection *)calloc(BOARDSIZE,sizeof(Intersection));
     self.board = [UIImage imageNamed:@"Board_pad.png"];
     self.blackPiece = [UIImage imageNamed:@"black_piece.png"];
     self.whitePiece = [UIImage imageNamed:@"white_piece.png"];
     self.lastPlayPointPos = -1;
+    self.curStepCount=0;
+    self.needShowStepHint=NO;
 }
 
 -(BOOL)setPiece:(int)color at:(int)x and: (int)y{
@@ -53,6 +59,8 @@
     }
     gnugo_play_move(POS(x, y), color);
     self.boardToShow[POS(x, y)]=color;
+    self.curStepCount++;
+    self.boardShowStepHint[POS(x, y)]=self.curStepCount;
     int cpr = memcmp(board, self.boardToShow,sizeof(board));
     if (cpr) {
         memcpy(self.boardToShow, board, sizeof(board));
@@ -79,6 +87,12 @@
     int success = undo_move(step);
     if (success) {
         self.lastPlayPointPos=-1;
+        self.curStepCount-=step;
+        for (int i=0; i<BOARDSIZE; i++) {
+            if (self.boardShowStepHint[i]>self.curStepCount) {
+                self.boardShowStepHint[i]=0;
+            }
+        }
         memcpy(self.boardToShow, board, sizeof(board));
         [self setNeedsDisplay];
         return YES;
@@ -96,6 +110,9 @@
     }
     if (self.lastPlayPointPos>=0) {
         [self drawLastPlayIndicate:context at:self.lastPlayPointPos];
+    }
+    if (self.needShowStepHint) {
+        [self drawStepHint:context];
     }
 }
 -(void)drawLastPlayIndicate:(CGContextRef)context at:(int) pos{
@@ -119,12 +136,55 @@
         for (int y=0; y<board_size; y++) {
             int color = self.boardToShow[POS(x, y)];
             [self drawPiece:context withColor:color at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
+            if (self.needShowStepHint) {
+                [self drawStepHint:context withStepCount:self.boardShowStepHint[POS(x, y)] at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
+            }
         }
     }
     
     
     UIGraphicsPopContext();
 }
+-(void)drawStepHint:(CGContextRef)context{
+    UIGraphicsPushContext(context);
+    CGFloat lspec = self.spec;
+    for (int x=0; x<board_size; x++) {
+        for (int y=0; y<board_size; y++) {
+                [self drawStepHint:context withStepCount:self.boardShowStepHint[POS(x, y)] at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
+        }
+    }
+    
+    
+    UIGraphicsPopContext();
+}
+
+-(void)drawStepHint:(CGContextRef)context withStepCount:(int)stepCount at:(CGPoint)loc{
+    UIGraphicsPushContext(context);
+    switch (stepCount) {
+        case 0:
+            return;
+    }
+    CGFloat radio =((self.frame.size.width/668)*PIECE_RADIO);
+    NSString *number = [NSString stringWithFormat:@"%d",stepCount];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    /// Set line break mode
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    /// Set text alignment
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSForegroundColorAttributeName:
+                                     [UIColor colorWithRed:((float) 128/ 255.0f)
+                                                     green:((float) 128/ 255.0f)
+                                                      blue:((float) 128/ 255.0f)
+                                                     alpha:1.0f]};
+    
+    [number drawInRect:CGRectMake(loc.x-radio, loc.y-radio/2,radio*2 ,radio*2) withAttributes:attributes];
+    
+//    CGContextDrawImage(context,  CGRectMake(loc.x-radio, loc.y-radio,radio*2 ,radio*2), imageRef);
+    UIGraphicsPopContext();
+}
+
 -(void)drawPiece:(CGContextRef)context withColor:(int)color at:(CGPoint)loc{
     UIGraphicsPushContext(context);
     CGImageRef imageRef;
@@ -167,6 +227,18 @@
 }
 -(void)sync{
     memcpy(self.boardToShow, board, sizeof(board));
+}
+-(void )showStepHint{
+    self.needShowStepHint=YES;
+    [self setNeedsDisplay];
+}
+-(void)closeStepHint{
+    self.needShowStepHint=NO;
+    [self setNeedsDisplay];
+}
+-(void)cleanStepHint{
+    self.curStepCount=0;
+    memset(self.boardShowStepHint,0,BOARDSIZE*sizeof(int));
 }
 
 

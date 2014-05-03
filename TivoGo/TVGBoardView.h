@@ -27,5 +27,10 @@
 -(void)indicate:(int)color at:(int)x and:(int)y;
 -(BOOL)undo:(int)step;
 -(void)sync;
+-(void)showStepHint;
+-(void)closeStepHint;
+-(void)cleanStepHint;
+//-(void)addMark:(NSString *)mark at:(int)pos;
+//-(void)clearMark;
 @end
 

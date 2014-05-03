@@ -210,7 +210,7 @@
     }
     UIButton *accessoryButton = (UIButton *)cell.accessoryView;
     if (accessoryButton ==nil) {
-        accessoryButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24 , 24)];
+        accessoryButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44 , 44)];
         [accessoryButton setBackgroundColor:[UIColor clearColor]];
         UIImage *nextImage = [[UIImage imageNamed:@"icon-ios7-arrow-right-128.png"] imageWithTintColor:[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0]];
         [accessoryButton setImage:nextImage forState:UIControlStateNormal];
@@ -272,8 +272,8 @@
         self.lookStatus = YES;
         gnugo_clear_board(19);
         [self.board sync];
-        [self.board setNeedsDisplay];
-        
+        [self.board cleanStepHint];
+        [self.board showStepHint];
         [UIView animateWithDuration:0.5 animations:^{
             for (UIView *view in ctx.searchSideBar) {
                 CGPoint origin = view.frame.origin;
