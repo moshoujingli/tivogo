@@ -45,7 +45,6 @@
 		6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */; };
 		6AB45C671840D86B00FB6D2A /* sgf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C661840D86B00FB6D2A /* sgf */; };
 		6ABA9A1A18A7D281006A0434 /* Board_pad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A1818A7D281006A0434 /* Board_pad.png */; };
-		6ABA9A1B18A7D281006A0434 /* Board_padx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A1918A7D281006A0434 /* Board_padx2.png */; };
 		6ABA9A2318A93D89006A0434 /* black_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2218A93D89006A0434 /* black_piece.png */; };
 		6ABA9A2518A93DD1006A0434 /* white_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2418A93DD1006A0434 /* white_piece.png */; };
 		6ABA9A3018AF6DAB006A0434 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2F18AF6DAB006A0434 /* bg.png */; };
@@ -58,6 +57,7 @@
 		6AC822B318730F2F00AF1C74 /* TVGGnugoAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC822B218730F2F00AF1C74 /* TVGGnugoAPITest.m */; };
 		6AC822B418731DE900AF1C74 /* gnugo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8664E418537AA4005D5944 /* gnugo.a */; };
 		6AC822B8187711F600AF1C74 /* TVGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC822B7187711F600AF1C74 /* TVGSettingViewController.m */; };
+		6AEEE50C191327B400B2B919 /* Board_pad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE50B191327B400B2B919 /* Board_pad@2x.png */; };
 		6AF5A5A518EFF6250019BE36 /* icon-ios7-arrow-back-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5A5A418EFF6250019BE36 /* icon-ios7-arrow-back-128.png */; };
 		6AF5A5A618EFF6250019BE36 /* icon-ios7-arrow-back-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5A5A418EFF6250019BE36 /* icon-ios7-arrow-back-128.png */; };
 		6AF5A5AD18EFFD9F0019BE36 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5A5AC18EFFD9F0019BE36 /* UIImage+Tint.m */; };
@@ -133,7 +133,6 @@
 		6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSGFTree.m; sourceTree = "<group>"; };
 		6AB45C661840D86B00FB6D2A /* sgf */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sgf; sourceTree = "<group>"; };
 		6ABA9A1818A7D281006A0434 /* Board_pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Board_pad.png; sourceTree = "<group>"; };
-		6ABA9A1918A7D281006A0434 /* Board_padx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Board_padx2.png; sourceTree = "<group>"; };
 		6ABA9A2218A93D89006A0434 /* black_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_piece.png; sourceTree = "<group>"; };
 		6ABA9A2418A93DD1006A0434 /* white_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_piece.png; sourceTree = "<group>"; };
 		6ABA9A2818AF5657006A0434 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		6AC822B218730F2F00AF1C74 /* TVGGnugoAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGGnugoAPITest.m; sourceTree = "<group>"; };
 		6AC822B6187711F600AF1C74 /* TVGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSettingViewController.h; sourceTree = "<group>"; };
 		6AC822B7187711F600AF1C74 /* TVGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSettingViewController.m; sourceTree = "<group>"; };
+		6AEEE50B191327B400B2B919 /* Board_pad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Board_pad@2x.png"; sourceTree = "<group>"; };
 		6AF5A5A418EFF6250019BE36 /* icon-ios7-arrow-back-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-arrow-back-128.png"; sourceTree = "<group>"; };
 		6AF5A5AB18EFFD9F0019BE36 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		6AF5A5AC18EFFD9F0019BE36 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
@@ -347,6 +347,7 @@
 		6ABA9A1518A7CC9D006A0434 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				6AEEE50B191327B400B2B919 /* Board_pad@2x.png */,
 				6A11A31C18FAE2AC002508BE /* icon_40.png */,
 				6A11A31A18FABF56002508BE /* icon_80.png */,
 				6A11A31618FABB02002508BE /* icon.png */,
@@ -368,7 +369,6 @@
 				6ABA9A2F18AF6DAB006A0434 /* bg.png */,
 				6ABA9A1818A7D281006A0434 /* Board_pad.png */,
 				6ABA9A2218A93D89006A0434 /* black_piece.png */,
-				6ABA9A1918A7D281006A0434 /* Board_padx2.png */,
 				6ABA9A2418A93DD1006A0434 /* white_piece.png */,
 			);
 			name = res;
@@ -458,13 +458,13 @@
 				6A11A31518F93873002508BE /* icon-ios7-arrow-right-128.png in Resources */,
 				6A11A31818FABB02002508BE /* icon.png in Resources */,
 				6A42BB8F187996810029889D /* game_setting.plist in Resources */,
-				6ABA9A1B18A7D281006A0434 /* Board_padx2.png in Resources */,
 				6ABA9A3018AF6DAB006A0434 /* bg.png in Resources */,
 				6ABA9A3418B0CB54006A0434 /* move.wav in Resources */,
 				6AF5A5B718F198E50019BE36 /* end-128.png in Resources */,
 				6AF5A5B918F198E50019BE36 /* fast_forward-128.png in Resources */,
 				6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */,
 				6A8664CF184B9549005D5944 /* include in Resources */,
+				6AEEE50C191327B400B2B919 /* Board_pad@2x.png in Resources */,
 				6ABA9A3C18B1067F006A0434 /* snow.mp3 in Resources */,
 				6AF5A5A518EFF6250019BE36 /* icon-ios7-arrow-back-128.png in Resources */,
 				6A11A31D18FAE2AC002508BE /* icon_40.png in Resources */,
