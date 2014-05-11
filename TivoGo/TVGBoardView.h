@@ -12,6 +12,8 @@
 #define PIECE_OUTSIDE_SPEC (BASE_OUT_SPEC+INSIDE_BOARD_WIDTH+OUT_BOARD_WIDTH+1)
 #import <UIKit/UIKit.h>
 #import "gnugo.h"
+#import "TVGMove.h"
+#import "TVGSGFProperty.h"
 
 @protocol RemoveDelegate <NSObject>
 @required
@@ -30,7 +32,8 @@
 -(void)showStepHint;
 -(void)closeStepHint;
 -(void)cleanStepHint;
-//-(void)addMark:(NSString *)mark at:(int)pos;
-//-(void)clearMark;
+-(void)changeStepHint;
+-(void)addLabel:(NSArray*)labelMoves;
+-(void)clearMark;
 @end
 

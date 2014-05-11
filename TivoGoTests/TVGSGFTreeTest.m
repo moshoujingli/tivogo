@@ -97,6 +97,11 @@
             moveNodeCount++;
             //get move locate and color
             NSArray* move = [node getPropertyByName:@"move"];
+            NSArray* lb = [node getPropertyByName:@"label"];
+            for (TVGSGFProperty* item in lb) {
+                TVGMove *labelPoint =  item.propValue;
+                NSLog(@"%d,%d,label %@",labelPoint.x,labelPoint.y,labelPoint.label);
+            }
             XCTAssertTrue(move.count==1, @"move node can only be one now is %d",move.count);
             TVGMove *mvPoint =  ((TVGSGFProperty *)[move objectAtIndex:0]).propValue;
             XCTAssertTrue(mvPoint.x>=0&&mvPoint.x<=19, @"point x out of range %d",mvPoint.x);

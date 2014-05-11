@@ -12,4 +12,5 @@
 @property (nonatomic)short player;
 @property  (nonatomic)short x;
 @property   (nonatomic)short y;
+@property (nonatomic)NSString *label;
 @end

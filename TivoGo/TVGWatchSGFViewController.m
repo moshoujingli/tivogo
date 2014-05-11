@@ -129,7 +129,7 @@
     self.prevTenPass.tag = PREV;
     self.nextBtn.tag = NEXT;
 //    self.toEnd.tag = END;
-    self.detailCtrls = [[NSArray alloc]initWithObjects:self.toStart ,self.nextTenPass,self.prevTenPass,self.nextBtn, self.sgfComment,self.player,nil];
+    self.detailCtrls = [[NSArray alloc]initWithObjects:self.toStart ,self.nextTenPass,self.prevTenPass,self.nextBtn, self.sgfComment,self.player,self.changeStepHintBtn,nil];
     for (UIView* view in self.detailCtrls) {
        view.alpha = 0;
     }
@@ -172,9 +172,12 @@
     for (; !node.isLeaf; node=[tree getNodeById:node.nextStepID]) {
         if (node.isMoveNode) {
             //get move locate and color
+            [self.board clearMark];
             NSArray* move = [node getPropertyByName:@"move"];
             TVGMove *mvPoint = ((TVGSGFProperty *)[move objectAtIndex:0]).propValue;
             [self.board setPiece:mvPoint.player at:mvPoint.x and:mvPoint.y];
+            NSArray* labelMoves = [node getPropertyByName:@"label"];
+            [self.board addLabel:labelMoves];
             NSArray *comment = [node getPropertyByName:@"comment"];
             if ([comment count]!=0) {
                 
@@ -199,6 +202,9 @@
 
 
 
+- (IBAction)showStepHint:(id)sender {
+    [self.board changeStepHint];
+}
 
 
 
@@ -274,6 +280,9 @@
         [self.board sync];
         [self.board cleanStepHint];
         [self.board showStepHint];
+        NSString *blackPlayer = [self.curPlayingTree.gameInfo objectForKey:@"PB"];
+        NSString *whitePlayer = [self.curPlayingTree.gameInfo objectForKey:@"PW"];
+        self.player.text = [NSString stringWithFormat:@"%@:黑 VS 白:%@",blackPlayer,whitePlayer];
         [UIView animateWithDuration:0.5 animations:^{
             for (UIView *view in ctx.searchSideBar) {
                 CGPoint origin = view.frame.origin;
@@ -288,6 +297,9 @@
     }else{
         self.lookStatus = NO;
         self.curNode=nil;
+        [self.board clearMark];
+        [self.board closeStepHint];
+        self.player.text=@"";
         [UIView animateWithDuration:0.5 animations:^{
             for (UIView *view in ctx.searchSideBar) {
                 CGPoint origin = view.frame.origin;
@@ -315,6 +327,7 @@
 
     NSString *fileName = [[NSHomeDirectory() stringByAppendingString:@"/Documents/sgf/"] stringByAppendingString:[self.sgfFileListDataSrc objectAtIndex:indexPath.row]];
     NSLog(@"%@ is select in section",fileName);
+
     TVGSGFTree *tree = [[TVGSGFTree alloc]initWithFile:fileName];
     TVGSGFNode * node = [tree getRootNode];
     NSArray *prop = [node getPropertyByName:@"comment"];

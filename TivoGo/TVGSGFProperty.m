@@ -8,6 +8,7 @@
 
 #import "TVGSGFProperty.h"
 #include "sgftree.h"
+#define LABEL_TRIANGLE 33
 @implementation TVGSGFProperty
 @synthesize propName=_propName;
 @synthesize propValue=_propValue;
@@ -15,6 +16,11 @@
     TVGMove * move = [[TVGMove alloc]init];
     move.player = player;
     SGFProperty pro;
+    if (player==EMPTY) {
+        move.label = [[NSString alloc]initWithUTF8String:(self.rawValue+3)];
+    }else if(player==LABEL_TRIANGLE){
+        move.label = @"△";
+    }
     pro.value=self.rawValue;
     move.x=get_moveX(&pro, 19);
     move.y=get_moveY(&pro, 19);
@@ -24,7 +30,8 @@
     if (!_propName) {
         switch (self.rawName) {
             case SGFLB:
-                _propName=@"lable";
+                _propName=@"label";
+                _propValue=[self getMoveInfoofPlayer:EMPTY];
                 break;
             case SGFB:
                 _propName=@"move";
@@ -45,6 +52,10 @@
             case SGFPW:
                 _propName=@"player_w";
                 _propValue=[[NSString alloc]initWithUTF8String:self.rawValue];
+                break;
+            case SGFTR:
+                _propName=@"label";
+                _propValue=[self getMoveInfoofPlayer:LABEL_TRIANGLE];
                 break;
             default:
                 _propName=@"unknow";

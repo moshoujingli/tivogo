@@ -22,6 +22,7 @@
 @property (nonatomic)int lastPlayPointPos;
 @property (nonatomic)int lastPlayPointColor;
 @property (nonatomic)BOOL needShowStepHint;
+@property (nonatomic)NSMutableArray* labelMoveArray;
 @end
 
 @implementation TVGBoardView
@@ -46,6 +47,7 @@
     self.lastPlayPointPos = -1;
     self.curStepCount=0;
     self.needShowStepHint=NO;
+    self.labelMoveArray = [[NSMutableArray alloc]init];
 }
 
 -(BOOL)setPiece:(int)color at:(int)x and: (int)y{
@@ -108,12 +110,26 @@
     if (self.indicateColor) {
         [self drawPiece:context withColor:self.indicateColor at:self.indicatePos];
     }
-    if (self.lastPlayPointPos>=0) {
-        [self drawLastPlayIndicate:context at:self.lastPlayPointPos];
-    }
     if (self.needShowStepHint) {
         [self drawStepHint:context];
+    }else{
+        if (self.lastPlayPointPos>=0) {
+            [self drawLastPlayIndicate:context at:self.lastPlayPointPos];
+        }
     }
+    if ([self.labelMoveArray count]>0) {
+        [self drawLabel:context];
+    }
+}
+-(void)drawLabel:(CGContextRef)context {
+    UIGraphicsPushContext(context);
+    CGFloat lspec = self.spec;
+    
+    for (TVGSGFProperty* moveProp in self.labelMoveArray) {
+        TVGMove* labelMove =  moveProp.propValue;
+        [self drawLabelHint:context withStepCount:labelMove.label at:CGPointMake(self.outside+lspec*labelMove.x, self.outside+lspec*labelMove.y) ];
+    }
+    UIGraphicsPopContext();
 }
 -(void)drawLastPlayIndicate:(CGContextRef)context at:(int) pos{
     UIGraphicsPushContext(context);
@@ -136,9 +152,6 @@
         for (int y=0; y<board_size; y++) {
             int color = self.boardToShow[POS(x, y)];
             [self drawPiece:context withColor:color at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
-            if (self.needShowStepHint) {
-                [self drawStepHint:context withStepCount:self.boardShowStepHint[POS(x, y)] at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
-            }
         }
     }
     
@@ -150,29 +163,26 @@
     CGFloat lspec = self.spec;
     for (int x=0; x<board_size; x++) {
         for (int y=0; y<board_size; y++) {
-                [self drawStepHint:context withStepCount:self.boardShowStepHint[POS(x, y)] at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
+            int stepCount = self.boardShowStepHint[POS(x, y)];
+            if (stepCount==0) {
+                continue;
+            }
+            NSString *number = [NSString stringWithFormat:@"%d",stepCount];
+            [self drawStepHint:context withStepCount: number at:CGPointMake(self.outside+lspec*x, self.outside+lspec*y)];
         }
     }
-    
-    
     UIGraphicsPopContext();
 }
 
--(void)drawStepHint:(CGContextRef)context withStepCount:(int)stepCount at:(CGPoint)loc{
+-(void)drawStepHint:(CGContextRef)context withStepCount:(NSString *)number at:(CGPoint)loc{
     UIGraphicsPushContext(context);
-    switch (stepCount) {
-        case 0:
-            return;
-    }
     CGFloat radio =((self.frame.size.width/668)*PIECE_RADIO);
-    NSString *number = [NSString stringWithFormat:@"%d",stepCount];
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     /// Set line break mode
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     /// Set text alignment
     paragraphStyle.alignment = NSTextAlignmentCenter;
-    NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle,
+    NSDictionary* attributes = @{NSParagraphStyleAttributeName: paragraphStyle,
                                  NSForegroundColorAttributeName:
                                      [UIColor colorWithRed:((float) 128/ 255.0f)
                                                      green:((float) 128/ 255.0f)
@@ -181,7 +191,23 @@
     
     [number drawInRect:CGRectMake(loc.x-radio, loc.y-radio/2,radio*2 ,radio*2) withAttributes:attributes];
     
-//    CGContextDrawImage(context,  CGRectMake(loc.x-radio, loc.y-radio,radio*2 ,radio*2), imageRef);
+    UIGraphicsPopContext();
+}
+-(void)drawLabelHint:(CGContextRef)context withStepCount:(NSString *)number at:(CGPoint)loc {
+    UIGraphicsPushContext(context);
+    CGFloat radio =((self.frame.size.width/668)*PIECE_RADIO);
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    /// Set line break mode
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    /// Set text alignment
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    NSDictionary* attributes = @{NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter"size:20],
+                                 NSForegroundColorAttributeName:
+                                     [UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0]};
+    
+    [number drawInRect:CGRectMake(loc.x-radio, loc.y-radio,radio*2 ,radio*2) withAttributes:attributes];
+    
     UIGraphicsPopContext();
 }
 
@@ -239,6 +265,20 @@
 -(void)cleanStepHint{
     self.curStepCount=0;
     memset(self.boardShowStepHint,0,BOARDSIZE*sizeof(int));
+}
+-(void)changeStepHint{
+    if (self.needShowStepHint) {
+        [self closeStepHint];
+    }else{
+        [self showStepHint];
+    }
+}
+-(void)addLabel:(NSArray*)labelMoves{
+    [self.labelMoveArray addObjectsFromArray:labelMoves];
+    [self setNeedsDisplay];
+}
+-(void)clearMark{
+    [self.labelMoveArray removeAllObjects];
 }
 
 

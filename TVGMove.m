@@ -9,5 +9,5 @@
 #import "TVGMove.h"
 
 @implementation TVGMove
-
+@synthesize label=_label;
 @end

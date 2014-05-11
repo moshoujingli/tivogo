@@ -23,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *prevTenPass;
 @property (weak, nonatomic) IBOutlet UILabel *player;
 @property (weak, nonatomic) IBOutlet UITextView *sgfComment;
+@property (weak, nonatomic) IBOutlet UIButton *changeStepHintBtn;
+
 
 @end
