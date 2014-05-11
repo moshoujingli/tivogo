@@ -52,9 +52,9 @@
     [self.board indicate:EMPTY at:0 and:0];
     if(do_play) {
         //change time counter
-        [self refreshTimerLabel];
         AudioServicesPlaySystemSound(self.makePieceSound);
         _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
+        [self refreshTimerLabel];
         if (self.isSingle) {
             self.isThingking=YES;
             self.thinkThread = [[NSThread alloc]initWithTarget:self selector:@selector(getMove) object:nil];
@@ -66,17 +66,38 @@
 
 
 -(void)refreshTimerLabel{
-    NSTimeInterval nowTime = [[NSDate date]timeIntervalSince1970];
-    NSTimeInterval time_use = nowTime-self.timer;
-    self.timer = nowTime;
-    self.timeCounters[self.whoPlayThisMove]+=time_use;
-    if (self.timeCounters[self.whoPlayThisMove]>=3600*2) {
-        
+    NSString *timeNowPlayer;
+    UIColor* curCounterColor;
+    if (self.settingStroge.useCountTime) {
+        NSTimeInterval nowTime = [[NSDate date]timeIntervalSince1970];
+        NSTimeInterval time_use = nowTime-self.timer;
+        self.timer = nowTime;
+        self.timeCounters[self.whoPlayThisMove]+=time_use;
+        if (self.timeCounters[self.whoPlayThisMove]>=3600*2) {
+            self.timeCounters[self.whoPlayThisMove] = 3600*2;
+        }
+        if (self.timeCounters[self.whoPlayThisMove]>=(3600*2-60)) {
+            curCounterColor =[UIColor colorWithRed:145/255.0 green:29/255.0 blue:81/255.0 alpha:1.0];
+        }else if (self.timeCounters[self.whoPlayThisMove]>=(3600*2-60*15)){
+            curCounterColor =[UIColor colorWithRed:146/255.0 green:142/255.0 blue:27/255.0 alpha:1.0];
+        }else{
+            curCounterColor =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
+        }
+        timeNowPlayer = [self.dateFormatter stringFromDate:
+                         [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters    [self.whoPlayThisMove])]];
+    }else{
+        timeNowPlayer = @"思考中";
+        UILabel *curCounterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
+        curCounterLabel.text = @"等待中";
+        curCounterLabel.textColor = [UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
+        curCounterColor =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
     }
-    NSString *timeNowPlayer = [self.dateFormatter stringFromDate:
-                               [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters    [self.whoPlayThisMove])]];
+    UILabel* playingConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
+    playingConterLabel.textColor =[UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1.0] ;
+
     UILabel *curConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove-1];
     curConterLabel.text = timeNowPlayer;
+    curConterLabel.textColor = curCounterColor;
 }
 
 -(void)timeIsOver{
@@ -86,8 +107,8 @@
 
 -(void)refresh:(NSNumber *)move{
     [self.board setPiece:self.whoPlayThisMove at:I(move.intValue) and:J(move.intValue)];
-    [self refreshTimerLabel];
     _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
+    [self refreshTimerLabel];
     [self.board setNeedsDisplay];
     self.isThingking=NO;
     AudioServicesPlaySystemSound(self.makePieceSound);
@@ -186,9 +207,7 @@
     [self.dateFormatter setDateFormat:@"HH:mm:ss"];
     [self.dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     [self initGame];
-    if (self.isSingle) {
-        //[alert show];
-        //time!
+    if (!self.isSingle) {
         
     }else{
         at =CGAffineTransformMakeRotation(M_PI);
@@ -240,7 +259,7 @@
     self.timeCounters = calloc(3, sizeof(NSTimeInterval));
     self.timeCounters[0]=self.timeCounters[1]=0;
     self.timer  = [[NSDate date]timeIntervalSince1970];
-    self.timerTic = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(refreshTimerLabel) userInfo:nil repeats:YES];
+    self.timerTic = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refreshTimerLabel) userInfo:nil repeats:YES];
     if (!self.settingStroge.useCountTime) {
         [self.timerTic invalidate];
     }
@@ -263,6 +282,10 @@
         self.timeCounterLabels = [NSArray arrayWithObjects:self.blackCounterLabel,self.whiteCounterLabel, nil];
     }else{
         self.timeCounterLabels = [NSArray arrayWithObjects:self.whiteCounterLabel,self.blackCounterLabel, nil];
+    }
+    if (!self.settingStroge.useCountTime) {
+        [self.timerTic invalidate];
+        [self refreshTimerLabel];
     }
     
 }
