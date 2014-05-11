@@ -26,6 +26,9 @@
 @property NSTimer* timerTic;
 @property int passPushedCount;
 @property (nonatomic)TVGSetting *settingStroge;
+@property NSData* saveData;
+@property int* stepRecord;
+@property int stepCount;
 @end
 
 @implementation TVGPlayerController
@@ -35,6 +38,7 @@
 @synthesize computeQueue=_computeQueue;
 @synthesize isThingking=_isThingking;
 @synthesize settingStroge=_settingStroge;
+@synthesize timeCounters = _timeCounters;
 
 -(TVGSetting *)settingStroge{
     return [TVGSetting getInstnce];
@@ -55,6 +59,8 @@
         AudioServicesPlaySystemSound(self.makePieceSound);
         _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
         [self refreshTimerLabel];
+        self.stepRecord[self.stepCount++]=POS(pos.x, pos.y);
+        [self saveGame];
         if (self.isSingle) {
             self.isThingking=YES;
             self.thinkThread = [[NSThread alloc]initWithTarget:self selector:@selector(getMove) object:nil];
@@ -67,6 +73,7 @@
 
 -(void)refreshTimerLabel{
     NSString *timeNowPlayer;
+    NSString *timeOtherPlayer;
     UIColor* curCounterColor;
     if (self.settingStroge.useCountTime) {
         NSTimeInterval nowTime = [[NSDate date]timeIntervalSince1970];
@@ -76,28 +83,35 @@
         if (self.timeCounters[self.whoPlayThisMove]>=3600*2) {
             self.timeCounters[self.whoPlayThisMove] = 3600*2;
         }
-        if (self.timeCounters[self.whoPlayThisMove]>=(3600*2-60)) {
-            curCounterColor =[UIColor colorWithRed:145/255.0 green:29/255.0 blue:81/255.0 alpha:1.0];
-        }else if (self.timeCounters[self.whoPlayThisMove]>=(3600*2-60*15)){
-            curCounterColor =[UIColor colorWithRed:146/255.0 green:142/255.0 blue:27/255.0 alpha:1.0];
-        }else{
-            curCounterColor =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
-        }
+        curCounterColor = [self getColorByTime:self.timeCounters[self.whoPlayThisMove]];
         timeNowPlayer = [self.dateFormatter stringFromDate:
-                         [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters    [self.whoPlayThisMove])]];
+                         [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters[self.whoPlayThisMove])]];
+        timeOtherPlayer = [self.dateFormatter stringFromDate:
+                         [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters[OTHER_COLOR(self.whoPlayThisMove)])]];
     }else{
         timeNowPlayer = @"思考中";
-        UILabel *curCounterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
-        curCounterLabel.text = @"等待中";
-        curCounterLabel.textColor = [UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
+        timeOtherPlayer = @"等待中";
         curCounterColor =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
     }
-    UILabel* playingConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
-    playingConterLabel.textColor =[UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1.0] ;
-
+    UILabel* otherConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
+    otherConterLabel.textColor =[UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1.0] ;
+    otherConterLabel.text = timeOtherPlayer;
+    
     UILabel *curConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove-1];
     curConterLabel.text = timeNowPlayer;
     curConterLabel.textColor = curCounterColor;
+}
+
+-(UIColor* )getColorByTime:(NSTimeInterval) time{
+    UIColor* color;
+    if (time>=(3600*2-60)) {
+        color =[UIColor colorWithRed:145/255.0 green:29/255.0 blue:81/255.0 alpha:1.0];
+    }else if (time>=(3600*2-60*15)){
+        color =[UIColor colorWithRed:146/255.0 green:142/255.0 blue:27/255.0 alpha:1.0];
+    }else{
+        color =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
+    }
+    return color;
 }
 
 -(void)timeIsOver{
@@ -112,6 +126,7 @@
     [self.board setNeedsDisplay];
     self.isThingking=NO;
     AudioServicesPlaySystemSound(self.makePieceSound);
+    self.stepRecord[self.stepCount++]=move.intValue;
 }
 
 -(void)getMove{
@@ -149,10 +164,15 @@
         return;
     }
     if (self.isSingle) {
-        [self.board undo:2];
+        if ([self.board undo:2]) {
+            self.stepRecord[--self.stepCount]=0;
+            self.stepRecord[--self.stepCount]=0;
+        }
     }else{
-        [self.board undo:1];
-        _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
+        if ([self.board undo:1]) {
+            _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
+            self.stepRecord[--self.stepCount]=0;
+        }
     }
     
 
@@ -166,9 +186,6 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         float score = gnugo_estimate_score(NULL,NULL);
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title" message:@"message" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-            
-            
             NSString *part = @"白";
             float scoreShow = score;
             if (score<0) {
@@ -176,9 +193,7 @@
                 scoreShow = -score;
             }
             scoreShow = ((int)(scoreShow/0.5))*0.5;
-            alertView.title = @"数子结果";
-            
-            alertView.message = [NSString stringWithFormat:@"%@当前胜%.1f目",part,scoreShow ];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"数子结果" message:[NSString stringWithFormat:@"%@当前胜%.1f目",part,scoreShow ] delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             [alertView show];
             ctx.isThingking = false;
             [tricker setEnabled:YES];
@@ -206,32 +221,12 @@
     self.dateFormatter = [[NSDateFormatter alloc]init];
     [self.dateFormatter setDateFormat:@"HH:mm:ss"];
     [self.dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    [self initGame];
     if (!self.isSingle) {
-        
-    }else{
         at =CGAffineTransformMakeRotation(M_PI);
         [self.whiteCounterLabel setTransform:at];
     }
     [self.countBtn setTitleColor:[UIColor colorWithRed:121/255.0 green:121/255.0 blue:121/255.0 alpha:1.0] forState:UIControlStateDisabled];
     [self.countBtn setTitle:@"数子中" forState:UIControlStateDisabled];
-}
-- (IBAction)passPushed:(UIButton *)sender {
-    self.passPushedCount++;
-    [self makeMoveTo:CGPointMake(0, 0) withColor:PASS_MOVE];
-    if (self.passPushedCount>=5) {
-        [sender setEnabled:NO];
-        [sender setTitleColor:[UIColor colorWithRed:121/255.0 green:121/255.0 blue:121/255.0 alpha:1.0] forState:UIControlStateDisabled];
-        return;
-    }
-
-}
--(void)initGame{
-    _whoPlayThisMove=BLACK;
-    gameinfo_clear(&(_gameInfo));
-    
-
-    
     SystemSoundID soundID=0;
     NSURL *url = [NSURL fileURLWithPath:[NSString
                                          stringWithFormat:@"%@/move.wav",  [[NSBundle mainBundle]  resourcePath]]];
@@ -248,16 +243,44 @@
         
         self.board.removeDelegate = self;
     }
-
+    
     if (self.settingStroge.useBGM) {
         self.bgmSound = [[AVAudioPlayer alloc]initWithContentsOfURL:url fileTypeHint:@"mp3" error:NULL];
         self.bgmSound.volume = 0.05f;
         [self.bgmSound play];
         
     }
+
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.saveData = [self getSavedData];
+    if ([self.saveData length]==(400*sizeof(int)+3*sizeof(NSTimeInterval)+sizeof(short)+sizeof(_whoPlayThisMove))) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开局" message:@"是否载入上次的进度？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+    }else{
+        [self initGame];
+    }
+}
+- (IBAction)passPushed:(UIButton *)sender {
+    self.passPushedCount++;
+    [self makeMoveTo:CGPointMake(0, 0) withColor:PASS_MOVE];
+    if (self.passPushedCount>=5) {
+        [sender setEnabled:NO];
+        [sender setTitleColor:[UIColor colorWithRed:121/255.0 green:121/255.0 blue:121/255.0 alpha:1.0] forState:UIControlStateDisabled];
+        return;
+    }
+
+}
+-(void)initGame{
+    _whoPlayThisMove=BLACK;
+    gameinfo_clear(&(_gameInfo));
+    self.stepRecord = calloc(400, sizeof(int));
+    self.stepCount = 0;
     self.timeCounters = calloc(3, sizeof(NSTimeInterval));
-    self.timeCounters[0]=self.timeCounters[1]=0;
+    self.timeCounters[0] = self.timeCounters[1]=self.timeCounters[2]=0;
     self.timer  = [[NSDate date]timeIntervalSince1970];
     self.timerTic = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refreshTimerLabel) userInfo:nil repeats:YES];
     if (!self.settingStroge.useCountTime) {
@@ -289,19 +312,62 @@
     }
     
 }
+-(void)saveGame{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName;
+    if (self.isSingle) {
+        fileName = @"board_info_single";
+    }else{
+        fileName = @"board_info";
+    }
+    fileName = [fileName stringByAppendingString:self.settingStroge.sum];
+    NSString *myFile = [documentsDirectory stringByAppendingPathComponent:fileName];
 
+    NSData *timeData = [NSData dataWithBytes:_timeCounters length:3*sizeof(NSTimeInterval)];
+    NSData *whoData = [NSData dataWithBytes:&(_whoPlayThisMove) length:sizeof(_whoPlayThisMove)];
+    NSData *playData = [NSData dataWithBytes:self.stepRecord length:400*sizeof(int)];
+    short status=self.isThingking?1:0;
+
+    NSMutableData* dataToSave = [NSMutableData dataWithData:playData];
+    [dataToSave appendData:timeData];
+    [dataToSave appendData:whoData];
+    [dataToSave appendBytes:&status length:sizeof(short)];
+    
+    if ([dataToSave writeToFile:myFile atomically:YES]) {
+        return;
+    } else {
+        [NSException raise:@"Write Error" format:@"Cannot write to %@", myFile];
+    }
+
+}
+-(NSData *)getSavedData{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName;
+    if (self.isSingle) {
+        fileName = @"board_info_single";
+    }else{
+        fileName = @"board_info";
+    }
+    fileName = [fileName stringByAppendingString:self.settingStroge.sum];
+    NSString *myFile = [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSData *savedData = [NSData dataWithContentsOfFile:myFile];
+    return savedData;
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)backPushed:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.thinkThread cancel];
 
     [self.timerTic invalidate];
-    
+    [self saveGame];
     if (self.settingStroge.useBGM) {
         [self.bgmSound stop];
     }
@@ -315,5 +381,64 @@
 -(void)eatOccur{
     AudioServicesPlaySystemSound(self.killSound);
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex) {
+
+        gameinfo_clear(&(_gameInfo));
+        self.stepCount=0;
+        self.stepRecord =calloc(400, sizeof(int));
+        short to_paly=BLACK;
+        int loc=0;
+        [self.saveData getBytes:self.stepRecord range:NSMakeRange(0, 400*sizeof(int))];
+        while ((loc=self.stepRecord[self.stepCount])) {
+            [self.board setPiece:to_paly at:I(loc) and:J(loc)];
+            to_paly = OTHER_COLOR(to_paly);
+            self.stepCount++;
+        }
+        self.timeCounters = calloc(3, sizeof(NSTimeInterval));
+        [self.saveData getBytes: _timeCounters range:NSMakeRange(400*sizeof(int), 3*sizeof(NSTimeInterval))];
+        
+        [self.saveData getBytes:&_whoPlayThisMove range:NSMakeRange(400*sizeof(int)+3*sizeof(NSTimeInterval), sizeof(_whoPlayThisMove))];
+        self.timer  = [[NSDate date]timeIntervalSince1970];
+        self.timerTic = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refreshTimerLabel) userInfo:nil repeats:YES];
+        short isComputerPlay=0;
+        [self.saveData getBytes:&isComputerPlay range:NSMakeRange(400*sizeof(int)+3*sizeof(NSTimeInterval)+sizeof(_whoPlayThisMove), sizeof(short))];
+
+        if (!self.settingStroge.useCountTime) {
+            [self.timerTic invalidate];
+        }
+        if (self.settingStroge.useKomi) {
+            komi=7.5;
+        }
+        if (self.settingStroge.isChineseRule) {
+            chinese_rules=1;
+        }else{
+            chinese_rules=0;
+        }
+        if (self.isSingle&&!self.settingStroge.useBlack) {
+            UIImage *blackImg = self.blackHint.image;
+            self.blackHint.image = self.whiteHint.image;
+            self.whiteHint.image = blackImg;
+            self.timeCounterLabels = [NSArray arrayWithObjects:self.blackCounterLabel,self.whiteCounterLabel, nil];
+        }else{
+            self.timeCounterLabels = [NSArray arrayWithObjects:self.whiteCounterLabel,self.blackCounterLabel, nil];
+        }
+        if (isComputerPlay) {
+            self.isThingking=YES;
+            self.thinkThread = [[NSThread alloc]initWithTarget:self selector:@selector(getMove) object:nil];
+            [self.thinkThread setStackSize:(4096*512*20)];
+            [self.thinkThread start];
+        }
+        if (!self.settingStroge.useCountTime) {
+            [self.timerTic invalidate];
+            [self refreshTimerLabel];
+        }
+        [self.board sync];
+        [self.board setNeedsDisplay];
+    }else{
+        [self initGame];
+    }
+}
+
 
 @end

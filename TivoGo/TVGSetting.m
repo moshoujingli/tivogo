@@ -17,8 +17,7 @@
 @implementation TVGSetting
 @synthesize storageDic = _storageDic;
 @synthesize settingFilePath = _settingFilePath;
-
-
+@synthesize sum=_sum;
 static TVGSetting *sInstance=nil;
 
 +(TVGSetting *)getInstnce{
@@ -104,5 +103,15 @@ static TVGSetting *sInstance=nil;
         }
     }
     return self;
+}
+- (NSString *) sum
+{
+    NSMutableString* sum = [NSMutableString stringWithCapacity:4];
+    [sum appendString:self.useBlack?@"1":@"0"];
+    [sum appendString:self.useCountTime?@"1":@"0"];
+    [sum appendString:self.isChineseRule?@"1":@"0"];
+    [sum appendString:self.useKomi?@"1":@"0"];
+
+    return sum;
 }
 @end

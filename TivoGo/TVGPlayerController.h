@@ -10,7 +10,7 @@
 #import <gnugo.h>
 #import "TVGBoardView.h"
 #import <AVFoundation/AVFoundation.h>
-@interface TVGPlayerController : UIViewController<AVAudioPlayerDelegate,RemoveDelegate>
+@interface TVGPlayerController : UIViewController<AVAudioPlayerDelegate,RemoveDelegate, UIAlertViewDelegate >
 @property (weak, nonatomic) IBOutlet TVGBoardView *board;
 @property (weak, nonatomic) IBOutlet UILabel *whiteCounterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blackCounterLabel;

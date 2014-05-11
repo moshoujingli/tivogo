@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonDigest.h>
 
 @interface TVGSetting : NSObject
 @property (nonatomic)BOOL isChineseRule;
@@ -16,6 +17,7 @@
 @property (nonatomic)BOOL useSound;
 @property (nonatomic)BOOL firstOpen;
 @property (nonatomic)BOOL useBlack;
+@property (nonatomic)NSString* sum;
 -(void)flush;
 +(TVGSetting *)getInstnce;
 @end
