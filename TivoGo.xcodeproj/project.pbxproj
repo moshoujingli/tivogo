@@ -92,6 +92,7 @@
 		6A11A31718FABB02002508BE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		6A11A31A18FABF56002508BE /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
 		6A11A31C18FAE2AC002508BE /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
+		6A19060F191FAED80066339E /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		6A1BCDF018F6DA4E0071B7C1 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
 		6A42BB8E187996810029889D /* game_setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = game_setting.plist; sourceTree = "<group>"; };
 		6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPrintInfoTest.m; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 		6AB45C20183D1E3200FB6D2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A19060F191FAED80066339E /* libcommonCrypto.dylib */,
 				6ABA9A3518B0CB81006A0434 /* AVFoundation.framework */,
 				6A8664E418537AA4005D5944 /* gnugo.a */,
 				6AB45C21183D1E3200FB6D2A /* Foundation.framework */,
@@ -662,7 +664,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
-				LIBRARY_SEARCH_PATHS = /Users/bixiaopeng/project/go4ios/gnugolib;
+				LIBRARY_SEARCH_PATHS = (
+					/Users/bixiaopeng/project/go4ios/gnugolib,
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"TEST_HOST[sdk=*]" = "";
@@ -687,7 +692,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "TivoGo/TivoGo-Info.plist";
-				LIBRARY_SEARCH_PATHS = /Users/bixiaopeng/project/go4ios/gnugolib;
+				LIBRARY_SEARCH_PATHS = (
+					/Users/bixiaopeng/project/go4ios/gnugolib,
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "/Users/bixiaopeng/project/go4ios/gnugolib/**";

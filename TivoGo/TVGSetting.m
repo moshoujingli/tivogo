@@ -40,7 +40,7 @@ static TVGSetting *sInstance=nil;
     return    [self getBoolPropForKey:@"bgm" withDefault:YES];
 }
 -(BOOL)useCountTime{
-    return    [self getBoolPropForKey:@"time" withDefault:YES];
+    return    [self getBoolPropForKey:@"time" withDefault:NO];
 }
 -(BOOL)useKomi{
     return    [self getBoolPropForKey:@"komi" withDefault:YES];

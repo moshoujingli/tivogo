@@ -177,7 +177,7 @@
     
 
 }
-- (IBAction)reportCountPUshed:(UIButton *)sender {
+- (IBAction)reportCountPushed:(UIButton *)sender {
     
     __weak TVGPlayerController *ctx = self;
     __weak UIButton* tricker  = sender;
@@ -215,6 +215,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.isThingking=YES;
     CGAffineTransform at =CGAffineTransformMakeScale(1, -1);
     [self.whiteHint setTransform:at];
     [self.blackHint setTransform:at];
@@ -261,6 +262,7 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开局" message:@"是否载入上次的进度？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alertView show];
     }else{
+        self.isThingking=NO;
         [self initGame];
     }
 }
@@ -382,6 +384,7 @@
     AudioServicesPlaySystemSound(self.killSound);
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    self.isThingking=NO;
     if (buttonIndex) {
 
         gameinfo_clear(&(_gameInfo));

@@ -108,7 +108,7 @@
     [self drawBoard:context];
     [self drawPieces:context];
     if (self.indicateColor) {
-        [self drawPiece:context withColor:self.indicateColor at:self.indicatePos];
+        [self drawIndicate:context withColor:self.indicateColor at:self.indicatePos];
     }
     if (self.needShowStepHint) {
         [self drawStepHint:context];
@@ -120,6 +120,24 @@
     if ([self.labelMoveArray count]>0) {
         [self drawLabel:context];
     }
+}
+-(void)drawIndicate:(CGContextRef)context withColor:(int)color at:(CGPoint)pos{
+    UIGraphicsPushContext(context);
+    CGContextSetLineWidth(context, 2);
+    CGContextSetRGBStrokeColor(context, 14/255.0, 133/255.0, 251/255.0, 0.7);
+    CGPoint vVertex[2];
+    CGPoint hVertex[2];
+    CGFloat length = 19*self.spec;
+    vVertex[0] =CGPointMake(pos.x, pos.y-length>self.outside?pos.y-length:self.outside);
+    vVertex[1] =CGPointMake(pos.x, pos.y+length<(self.frame.size.width-self.outside)?pos.y+length:(self.frame.size.width-self.outside));
+    hVertex[0] =CGPointMake(pos.x-length>self.outside?(pos.x-length):self.outside, pos.y);
+    hVertex[1] =CGPointMake(pos.x+length<(self.frame.size.width-self.outside)?pos.x+length:(self.frame.size.width-self.outside), pos.y);
+
+    CGContextAddLines(context, vVertex, 2);
+    CGContextAddLines(context, hVertex, 2);
+    CGContextDrawPath(context, kCGPathStroke);
+    [self drawPiece:context withColor:self.indicateColor at:pos];
+    UIGraphicsPopContext();
 }
 -(void)drawLabel:(CGContextRef)context {
     UIGraphicsPushContext(context);
@@ -239,18 +257,18 @@
     CGContextDrawImage(context,  CGRectMake(0, 0,self.frame.size.width ,self.frame.size.width), imgRef);
     UIGraphicsPopContext();
 }
--(void)drawBoardWidth:(CGFloat)width andSpecToSide:(CGFloat)spec onContext:(CGContextRef) context{
-    CGContextSetLineWidth(context, width);
-    CGContextBeginPath(context);
-    [[UIColor grayColor]setStroke];
-    CGFloat boardWidth =self.frame.size.width-spec;
-    CGContextMoveToPoint(context, spec, spec);
-    CGContextAddLineToPoint(context, spec,boardWidth);
-    CGContextAddLineToPoint(context, boardWidth, boardWidth);
-    CGContextAddLineToPoint(context, boardWidth, spec);
-    CGContextClosePath(context);
-    CGContextDrawPath(context, kCGPathStroke);
-}
+//-(void)drawBoardWidth:(CGFloat)width andSpecToSide:(CGFloat)spec onContext:(CGContextRef) context{
+//    CGContextSetLineWidth(context, width);
+//    CGContextBeginPath(context);
+//    [[UIColor grayColor]setStroke];
+//    CGFloat boardWidth =self.frame.size.width-spec;
+//    CGContextMoveToPoint(context, spec, spec);
+//    CGContextAddLineToPoint(context, spec,boardWidth);
+//    CGContextAddLineToPoint(context, boardWidth, boardWidth);
+//    CGContextAddLineToPoint(context, boardWidth, spec);
+//    CGContextClosePath(context);
+//    CGContextDrawPath(context, kCGPathStroke);
+//}
 -(void)sync{
     memcpy(self.boardToShow, board, sizeof(board));
 }
