@@ -89,8 +89,8 @@
         timeOtherPlayer = [self.dateFormatter stringFromDate:
                          [NSDate dateWithTimeIntervalSince1970:(3600*2-self.timeCounters[OTHER_COLOR(self.whoPlayThisMove)])]];
     }else{
-        timeNowPlayer = @"思考中";
-        timeOtherPlayer = @"等待中";
+        timeNowPlayer = NSLocalizedString(@"Thinking", nil);
+        timeOtherPlayer =NSLocalizedString(@"Waiting", nil);
         curCounterColor =[UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
     }
     UILabel* otherConterLabel = [self.timeCounterLabels objectAtIndex:self.whoPlayThisMove%2];
@@ -186,14 +186,14 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         float score = gnugo_estimate_score(NULL,NULL);
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *part = @"白";
+            NSString *part = NSLocalizedString(@"White", nil);
             float scoreShow = score;
             if (score<0) {
-                part = @"黑";
+                part = NSLocalizedString(@"Black", nil);
                 scoreShow = -score;
             }
             scoreShow = ((int)(scoreShow/0.5))*0.5;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"数子结果" message:[NSString stringWithFormat:@"%@当前胜%.1f目",part,scoreShow ] delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"CountResult", nil)message:[NSString stringWithFormat:NSLocalizedString(@"WinFormat", nil),part,scoreShow ] delegate:nil cancelButtonTitle:NSLocalizedString(@"ConfirmResult", nil) otherButtonTitles:nil];
             [alertView show];
             ctx.isThingking = false;
             [tricker setEnabled:YES];
@@ -227,7 +227,7 @@
         [self.whiteCounterLabel setTransform:at];
     }
     [self.countBtn setTitleColor:[UIColor colorWithRed:121/255.0 green:121/255.0 blue:121/255.0 alpha:1.0] forState:UIControlStateDisabled];
-    [self.countBtn setTitle:@"数子中" forState:UIControlStateDisabled];
+    [self.countBtn setTitle:NSLocalizedString(@"IsCounting", nil) forState:UIControlStateDisabled];
     SystemSoundID soundID=0;
     NSURL *url = [NSURL fileURLWithPath:[NSString
                                          stringWithFormat:@"%@/move.wav",  [[NSBundle mainBundle]  resourcePath]]];
@@ -259,7 +259,7 @@
     [super viewDidAppear:animated];
     self.saveData = [self getSavedData];
     if ([self.saveData length]==(400*sizeof(int)+3*sizeof(NSTimeInterval)+sizeof(short)+sizeof(_whoPlayThisMove))) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开局" message:@"是否载入上次的进度？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"StartGame", nil) message:NSLocalizedString(@"IfRestore", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"NewGame", nil) otherButtonTitles:NSLocalizedString(@"ConfirmLoad", nil), nil];
         [alertView show];
     }else{
         self.isThingking=NO;

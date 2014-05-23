@@ -45,35 +45,54 @@
     NSLog(@"now is %@",searchText);
     [self changeListByKeyWord:searchText];
 }
+
+-(void)copyFileToDocument{
+    [[NSFileManager defaultManager] createDirectoryAtPath:[[NSHomeDirectory() stringByAppendingString:@"/Documents/sgf/"] stringByAppendingString:NSLocalizedString(@"LanguageCode", nil)] withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    NSString *bundlePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingString:@"/sgf"];
+    
+    int max;
+    if ([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"ja"]) {
+        max=35;
+    }else if([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"zhcn"]){
+        max=40;
+    }else if([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"zhtw"]){
+        max=40;
+    }else{
+        max=0;
+    }
+    for (int i=1; i<max; i++) {
+        NSLog(@"%d",i);
+        NSString *fileName = [bundlePath stringByAppendingString:[ [NSString alloc]initWithFormat:@"/%@/%d.sgf",NSLocalizedString(@"LanguageCode", nil),i]];
+        TVGSGFTree* testTree=[[TVGSGFTree alloc]initWithFile:fileName];
+        NSMutableDictionary *info = testTree.gameInfo;
+        NSString * key = @"GN";
+        NSString *content = [info objectForKey:key];
+        if (content!=nil) {
+            NSString *fileRealNameWithPath = [NSHomeDirectory() stringByAppendingString:[[NSString alloc]initWithFormat:@"/Documents/sgf/%@/%@.sgf",NSLocalizedString(@"LanguageCode", nil),content]];
+            if ([[NSFileManager defaultManager]fileExistsAtPath:fileRealNameWithPath]) {
+                continue;
+            }
+            NSData *sgfcontent = [NSData dataWithContentsOfFile:fileName];
+            [sgfcontent writeToFile:fileRealNameWithPath atomically:YES];
+        }
+        
+    }
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //copy bundles to storage
-    if (([TVGSetting getInstnce]).firstOpen) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/sgf"] withIntermediateDirectories:YES attributes:nil error:nil];
-        NSString *bundlePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"sgf"];
-        for (int i=1; i<40; i++) {
-            NSString *fileName = [bundlePath stringByAppendingPathComponent:[ [NSString alloc]initWithFormat:@"%d.sgf",i]];
-            TVGSGFTree* testTree=[[TVGSGFTree alloc]initWithFile:fileName];
-            NSMutableDictionary *info = testTree.gameInfo;
-            NSString * key = @"GN";
-            NSString *content = [info objectForKey:key];
-            if ([key isEqualToString:@"GN"]) {
-                NSString *fileRealNameWithPath = [NSHomeDirectory() stringByAppendingString:[[NSString alloc]initWithFormat:@"/Documents/sgf/%@.sgf",content]];
-                if ([[NSFileManager defaultManager]fileExistsAtPath:fileRealNameWithPath]) {
-                    continue;
-                }
-                NSData *sgfcontent = [NSData dataWithContentsOfFile:fileName];
-                [sgfcontent writeToFile:fileRealNameWithPath atomically:YES];
-            }
-            
-        }
- 
+    NSString *fileRealNameWithPath = [NSHomeDirectory() stringByAppendingString:[@"/Documents/sgf/" stringByAppendingString:NSLocalizedString(@"LanguageCode", nil)]];
+    NSArray *rawFileSet = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:fileRealNameWithPath error:nil];
+    if (([TVGSetting getInstnce]).firstOpen||[rawFileSet count]==0) {
+        [self copyFileToDocument];
     }
     //check all in storage(md5)
-     NSString *fileRealNameWithPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/sgf"];
-    NSArray *rawFileSet = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:fileRealNameWithPath error:nil];
+    rawFileSet = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:fileRealNameWithPath error:nil];
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"SELF ENDSWITH[d] %@",@".sgf"];
     self.orgSgfFileList = [rawFileSet filteredArrayUsingPredicate:filter];
     self.sgfFileListDataSrc = self.orgSgfFileList;
@@ -325,13 +344,13 @@
     gnugo_clear_board(19);
     self.sgfTitle.text = cell.textLabel.text;
 
-    NSString *fileName = [[NSHomeDirectory() stringByAppendingString:@"/Documents/sgf/"] stringByAppendingString:[self.sgfFileListDataSrc objectAtIndex:indexPath.row]];
+    NSString *fileName = [[[NSHomeDirectory() stringByAppendingString:@"/Documents/sgf/"]stringByAppendingString:NSLocalizedString(@"LanguageCode", nil)] stringByAppendingPathComponent:[self.sgfFileListDataSrc objectAtIndex:indexPath.row]];
     NSLog(@"%@ is select in section",fileName);
 
     TVGSGFTree *tree = [[TVGSGFTree alloc]initWithFile:fileName];
     TVGSGFNode * node = [tree getRootNode];
     NSArray *prop = [node getPropertyByName:@"comment"];
-    NSString *detail = ((TVGSGFProperty *)[prop objectAtIndex:0]).propValue;
+    NSString *detail = [prop count]>0? ((TVGSGFProperty *)[prop objectAtIndex:0]).propValue:@"";
     self.sgfDetail.text = detail;
     self.sgfDetail.textColor = [UIColor colorWithRed:((float) 24/ 255.0f)
                                                green:((float) 153/ 255.0f)

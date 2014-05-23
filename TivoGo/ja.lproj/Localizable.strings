@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  TivoGo
+
+  Created by BiXiaopeng on 14-5-20.
+  Copyright (c) 2014年 BiXiaopeng. All rights reserved.
+*/
+"Black"="黑";
+"White"="白";
+"Thinking"="考えている...";
+"Waiting"="待っている...";
+"ConfirmLoad"="続く";
+"ConfirmResult"="分かった";
+"NewGame"="新局再開";
+"IsCounting"="計目中";
+"CountResult"="計目結果";
+"WinFormat"="%@番%.1f目勝ち";
+"StartGame"="対局";
+"IfRestore"="終わっていない対局を続く？";
+"LanguageCode"="ja";

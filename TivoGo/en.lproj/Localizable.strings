@@ -1,0 +1,20 @@
+/*
+ Localizable.strings
+ TivoGo
+ 
+ Created by BiXiaopeng on 14-5-20.
+ Copyright (c) 2014年 BiXiaopeng. All rights reserved.
+ */
+"Black"="Black";
+"White"="White";
+"Thinking"="Thingking...";
+"Waiting"="Waiting...";
+"ConfirmLoad"="Continue";
+"ConfirmResult"="I've known";
+"NewGame"="New Game";
+"IsCounting"="Counting";
+"CountResult"="Result";
+"WinFormat"="%@ win %.1f point";
+"StartGame"="Start Game";
+"IfRestore"="Continue the saved game?";
+"LanguageCode"="en";

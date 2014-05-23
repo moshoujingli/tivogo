@@ -1,0 +1,20 @@
+/*
+ Localizable.strings
+ TivoGo
+ 
+ Created by BiXiaopeng on 14-5-20.
+ Copyright (c) 2014年 BiXiaopeng. All rights reserved.
+ */
+"Black"="黑";
+"White"="白";
+"Thinking"="思考中...";
+"Waiting"="等待中...";
+"ConfirmLoad"="繼續";
+"ConfirmResult"="朕知道了";
+"NewGame"="新局";
+"IsCounting"="數子中";
+"CountResult"="數子結果";
+"WinFormat"="%@勝%.1f目";
+"StartGame"="開局";
+"IfRestore"="接著上次打卦的來？";
+"LanguageCode"="zhtw";

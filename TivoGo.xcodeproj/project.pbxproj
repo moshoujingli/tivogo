@@ -13,8 +13,11 @@
 		6A11A31B18FABF56002508BE /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31A18FABF56002508BE /* icon_80.png */; };
 		6A11A31D18FAE2AC002508BE /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A11A31C18FAE2AC002508BE /* icon_40.png */; };
 		6A1BCDF118F6DA4E0071B7C1 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1BCDF018F6DA4E0071B7C1 /* prev.png */; };
+		6A203AAD192A508D005E4C88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A203AAF192A508D005E4C88 /* InfoPlist.strings */; };
+		6A203AB3192A5934005E4C88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A203AB5192A5934005E4C88 /* Localizable.strings */; };
 		6A42BB8F187996810029889D /* game_setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42BB8E187996810029889D /* game_setting.plist */; };
 		6A5CC7901868676000D14DBE /* TVGPrintInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */; };
+		6A6CF764192A4CB300E53F48 /* TivoGo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF763192A4CB300E53F48 /* TivoGo-Info.plist */; };
 		6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BC1849DA21005D5944 /* TVGSGFNode.m */; };
 		6A8664C01849DA34005D5944 /* TVGSGFProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BF1849DA34005D5944 /* TVGSGFProperty.m */; };
 		6A8664C21849E17F005D5944 /* TVGSGFTreeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664C11849E17F005D5944 /* TVGSGFTreeTest.m */; };
@@ -30,12 +33,13 @@
 		6A8E4566185766CE0032BF48 /* TVGPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8E4565185766CE0032BF48 /* TVGPlayerController.m */; };
 		6A8E4567185766CE0032BF48 /* TVGPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8E4565185766CE0032BF48 /* TVGPlayerController.m */; };
 		6AA34E3A189183B50067BF37 /* TVGSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA34E39189183B50067BF37 /* TVGSetting.m */; };
+		6AB0F317192D03A200F03D9E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */; };
+		6AB0F402192D096600F03D9E /* sgf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0F401192D096600F03D9E /* sgf */; };
 		6AB45C22183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
 		6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */; };
 		6AB45C26183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
 		6AB45C2E183D1E3200FB6D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C2D183D1E3200FB6D2A /* main.m */; };
 		6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C31183D1E3200FB6D2A /* TVGAppDelegate.m */; };
-		6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */; };
 		6AB45C38183D1E3200FB6D2A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */; };
 		6AB45C3B183D1E3200FB6D2A /* TVGMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C3A183D1E3200FB6D2A /* TVGMainPageViewController.m */; };
 		6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C3C183D1E3200FB6D2A /* Images.xcassets */; };
@@ -43,7 +47,6 @@
 		6AB45C45183D1E3200FB6D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C21183D1E3200FB6D2A /* Foundation.framework */; };
 		6AB45C46183D1E3200FB6D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB45C25183D1E3200FB6D2A /* UIKit.framework */; };
 		6AB45C651840CAA700FB6D2A /* TVGSGFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */; };
-		6AB45C671840D86B00FB6D2A /* sgf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB45C661840D86B00FB6D2A /* sgf */; };
 		6ABA9A1A18A7D281006A0434 /* Board_pad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A1818A7D281006A0434 /* Board_pad.png */; };
 		6ABA9A2318A93D89006A0434 /* black_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2218A93D89006A0434 /* black_piece.png */; };
 		6ABA9A2518A93DD1006A0434 /* white_piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABA9A2418A93DD1006A0434 /* white_piece.png */; };
@@ -94,8 +97,13 @@
 		6A11A31C18FAE2AC002508BE /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
 		6A19060F191FAED80066339E /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		6A1BCDF018F6DA4E0071B7C1 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
+		6A203AB0192A5092005E4C88 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6A203AB6192A5937005E4C88 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6A42BB8E187996810029889D /* game_setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = game_setting.plist; sourceTree = "<group>"; };
 		6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPrintInfoTest.m; sourceTree = "<group>"; };
+		6A6CF75E192977ED00E53F48 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		6A6CF75F192977ED00E53F48 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		6A6CF763192A4CB300E53F48 /* TivoGo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TivoGo-Info.plist"; sourceTree = "<group>"; };
 		6A8664BB1849DA21005D5944 /* TVGSGFNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSGFNode.h; sourceTree = "<group>"; };
 		6A8664BC1849DA21005D5944 /* TVGSGFNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSGFNode.m; sourceTree = "<group>"; };
 		6A8664BE1849DA34005D5944 /* TVGSGFProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSGFProperty.h; sourceTree = "<group>"; };
@@ -109,15 +117,28 @@
 		6A8664E0184E252D005D5944 /* TVGBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGBoardView.h; sourceTree = "<group>"; };
 		6A8664E1184E252D005D5944 /* TVGBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGBoardView.m; sourceTree = "<group>"; };
 		6A8664E418537AA4005D5944 /* gnugo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gnugo.a; path = ../../../../go4ios/gnugolib/gnugo.a; sourceTree = "<group>"; };
+		6A8DEA6F192BA6D70032FC7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		6A8DEA71192BA6D80032FC7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6A8DEA72192BA6D80032FC7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A8DEA73192BAAB30032FC7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.storyboard"; sourceTree = "<group>"; };
+		6A8DEA74192BAAB30032FC7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		6A8DEA75192BAAB30032FC7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6A8DEA76192BAC860032FC7F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
+		6A8DEA77192BAC860032FC7F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPad.storyboard"; sourceTree = "<group>"; };
+		6A8DEA78192BAC860032FC7F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		6A8DEA79192BAC860032FC7F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6A8DEA7A192BB00D0032FC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		6A8DEA7B192BB0150032FC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A8DEA7C192BB0190032FC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A8E4564185766CE0032BF48 /* TVGPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGPlayerController.h; sourceTree = "<group>"; };
 		6A8E4565185766CE0032BF48 /* TVGPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPlayerController.m; sourceTree = "<group>"; };
 		6AA34E38189183B50067BF37 /* TVGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSetting.h; sourceTree = "<group>"; };
 		6AA34E39189183B50067BF37 /* TVGSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSetting.m; sourceTree = "<group>"; };
+		6AB0F401192D096600F03D9E /* sgf */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sgf; sourceTree = "<group>"; };
 		6AB45C1E183D1E3200FB6D2A /* TivoGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TivoGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB45C21183D1E3200FB6D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AB45C23183D1E3200FB6D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6AB45C25183D1E3200FB6D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6AB45C29183D1E3200FB6D2A /* TivoGo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TivoGo-Info.plist"; sourceTree = "<group>"; };
 		6AB45C2D183D1E3200FB6D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AB45C2F183D1E3200FB6D2A /* TivoGo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TivoGo-Prefix.pch"; sourceTree = "<group>"; };
 		6AB45C30183D1E3200FB6D2A /* TVGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGAppDelegate.h; sourceTree = "<group>"; };
@@ -132,12 +153,9 @@
 		6AB45C621840C97400FB6D2A /* TVGMoveGenerater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGMoveGenerater.h; sourceTree = "<group>"; };
 		6AB45C631840CAA700FB6D2A /* TVGSGFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVGSGFTree.h; sourceTree = "<group>"; };
 		6AB45C641840CAA700FB6D2A /* TVGSGFTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGSGFTree.m; sourceTree = "<group>"; };
-		6AB45C661840D86B00FB6D2A /* sgf */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sgf; sourceTree = "<group>"; };
 		6ABA9A1818A7D281006A0434 /* Board_pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Board_pad.png; sourceTree = "<group>"; };
 		6ABA9A2218A93D89006A0434 /* black_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_piece.png; sourceTree = "<group>"; };
 		6ABA9A2418A93DD1006A0434 /* white_piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_piece.png; sourceTree = "<group>"; };
-		6ABA9A2818AF5657006A0434 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
-		6ABA9A2C18AF5939006A0434 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.storyboard"; sourceTree = "<group>"; };
 		6ABA9A2F18AF6DAB006A0434 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		6ABA9A3118B0CB54006A0434 /* kill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kill.wav; sourceTree = "<group>"; };
 		6ABA9A3218B0CB54006A0434 /* move.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = move.wav; sourceTree = "<group>"; };
@@ -229,7 +247,7 @@
 		6AB45C15183D1E3200FB6D2A = {
 			isa = PBXGroup;
 			children = (
-				6AB45C661840D86B00FB6D2A /* sgf */,
+				6AB0F401192D096600F03D9E /* sgf */,
 				6AB45C27183D1E3200FB6D2A /* TivoGo */,
 				6AB45C49183D1E3200FB6D2A /* TivoGoTests */,
 				6AB45C20183D1E3200FB6D2A /* Frameworks */,
@@ -284,10 +302,12 @@
 		6AB45C28183D1E3200FB6D2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A6CF763192A4CB300E53F48 /* TivoGo-Info.plist */,
 				6A42BB8E187996810029889D /* game_setting.plist */,
-				6AB45C29183D1E3200FB6D2A /* TivoGo-Info.plist */,
 				6AB45C2D183D1E3200FB6D2A /* main.m */,
 				6AB45C2F183D1E3200FB6D2A /* TivoGo-Prefix.pch */,
+				6A203AAF192A508D005E4C88 /* InfoPlist.strings */,
+				6A203AB5192A5934005E4C88 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -439,6 +459,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
+				"zh-Hans",
+				"zh-Hant",
+				it,
+				de,
 			);
 			mainGroup = 6AB45C15183D1E3200FB6D2A;
 			productRefGroup = 6AB45C1F183D1E3200FB6D2A /* Products */;
@@ -456,7 +481,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB0F317192D03A200F03D9E /* Main_iPhone.storyboard in Resources */,
 				6AF5A5B018F04E970019BE36 /* icon-ios7-information-outline-128.png in Resources */,
+				6A203AAD192A508D005E4C88 /* InfoPlist.strings in Resources */,
 				6A11A31518F93873002508BE /* icon-ios7-arrow-right-128.png in Resources */,
 				6A11A31818FABB02002508BE /* icon.png in Resources */,
 				6A42BB8F187996810029889D /* game_setting.plist in Resources */,
@@ -468,6 +495,7 @@
 				6A8664CF184B9549005D5944 /* include in Resources */,
 				6AEEE50C191327B400B2B919 /* Board_pad@2x.png in Resources */,
 				6ABA9A3C18B1067F006A0434 /* snow.mp3 in Resources */,
+				6A203AB3192A5934005E4C88 /* Localizable.strings in Resources */,
 				6AF5A5A518EFF6250019BE36 /* icon-ios7-arrow-back-128.png in Resources */,
 				6A11A31D18FAE2AC002508BE /* icon_40.png in Resources */,
 				6A1BCDF118F6DA4E0071B7C1 /* prev.png in Resources */,
@@ -475,15 +503,15 @@
 				6AB45C3D183D1E3200FB6D2A /* Images.xcassets in Resources */,
 				6ABA9A1A18A7D281006A0434 /* Board_pad.png in Resources */,
 				6AF5A5BF18F198E50019BE36 /* skip_to_start-128.png in Resources */,
-				6AB45C35183D1E3200FB6D2A /* Main_iPhone.storyboard in Resources */,
 				6AF5A5BD18F198E50019BE36 /* rewind-128.png in Resources */,
 				6ABA9A3B18B1067F006A0434 /* mount.mp3 in Resources */,
 				6A11A31918FABB02002508BE /* icon@2x.png in Resources */,
 				6ABA9A3318B0CB54006A0434 /* kill.wav in Resources */,
+				6A6CF764192A4CB300E53F48 /* TivoGo-Info.plist in Resources */,
+				6AB0F402192D096600F03D9E /* sgf in Resources */,
 				6AF5A5BB18F198E50019BE36 /* play-128.png in Resources */,
 				6ABA9A3A18B1067F006A0434 /* city.mp3 in Resources */,
 				6A11A31B18FABF56002508BE /* icon_80.png in Resources */,
-				6AB45C671840D86B00FB6D2A /* sgf in Resources */,
 				6ABA9A2318A93D89006A0434 /* black_piece.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,10 +580,36 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6A203AAF192A508D005E4C88 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A203AB0192A5092005E4C88 /* ja */,
+				6A8DEA71192BA6D80032FC7F /* en */,
+				6A8DEA74192BAAB30032FC7F /* zh-Hans */,
+				6A8DEA78192BAC860032FC7F /* zh-Hant */,
+				6A8DEA7C192BB0190032FC7F /* Base */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6A203AB5192A5934005E4C88 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A203AB6192A5937005E4C88 /* ja */,
+				6A8DEA72192BA6D80032FC7F /* en */,
+				6A8DEA75192BAAB30032FC7F /* zh-Hans */,
+				6A8DEA79192BAC860032FC7F /* zh-Hant */,
+				6A8DEA7B192BB0150032FC7F /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		6AB45C33183D1E3200FB6D2A /* Main_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6ABA9A2818AF5657006A0434 /* zh-Hans */,
+				6A6CF75E192977ED00E53F48 /* ja */,
+				6A8DEA6F192BA6D70032FC7F /* en */,
+				6A8DEA76192BAC860032FC7F /* zh-Hant */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -563,7 +617,10 @@
 		6AB45C36183D1E3200FB6D2A /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6ABA9A2C18AF5939006A0434 /* zh-Hans */,
+				6A6CF75F192977ED00E53F48 /* ja */,
+				6A8DEA73192BAAB30032FC7F /* zh-Hans */,
+				6A8DEA77192BAC860032FC7F /* zh-Hant */,
+				6A8DEA7A192BB00D0032FC7F /* Base */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
