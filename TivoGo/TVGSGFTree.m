@@ -33,25 +33,48 @@
             return nil;
         }
         char *tmpc=NULL;
+        NSStringEncoding curEncoding;
+        if ([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"ja"]) {
+            curEncoding = NSShiftJISStringEncoding;
+        }else{
+            curEncoding = NSUTF8StringEncoding;
+        }
         
         if (sgfGetCharProperty(root, "HA", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"HA"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"HA"];
         if (sgfGetCharProperty(root, "RU", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"RU"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"RU"];
         if (sgfGetCharProperty(root, "GN", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"GN"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"GN"];
         if (sgfGetCharProperty(root, "DT", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"DT"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"DT"];
         if (sgfGetCharProperty(root, "GC", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"GC"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"GC"];
         if (sgfGetCharProperty(root, "US", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"US"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"US"];
         if (sgfGetCharProperty(root, "PB", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"PB"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"PB"];
         if (sgfGetCharProperty(root, "PW", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"PW"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"PW"];
         if (sgfGetCharProperty(root, "RE", &tmpc))
-            [info setObject:[NSString stringWithUTF8String:tmpc] forKey:@"RE"];
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"RE"];
+        if (sgfGetCharProperty(root, "EV", &tmpc))
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"EV"];
+        if (sgfGetCharProperty(root, "SO", &tmpc))
+            [info setObject:[[NSString alloc]initWithBytes:tmpc length:strlen(tmpc) encoding:curEncoding] forKey:@"SO"];
+        
+        NSString* gameName = [info objectForKey:@"GN"];
+        if (gameName==nil) {
+            gameName=[info objectForKey:@"EV"];
+        }
+        if (gameName==nil) {
+            gameName=[info objectForKey:@"SO"];
+        }
+        if (gameName==nil) {
+            gameName=[ NSString stringWithFormat:@"%@ %@ %@ %@",[info objectForKey:@"DT"],[info objectForKey:@"PB"],NSLocalizedString(@"VS", nil),[info objectForKey:@"PW"]];
+        }
+        [info setObject:gameName forKey:@"GN"];
+        
         _gameInfo = info;
     }
     return _gameInfo;

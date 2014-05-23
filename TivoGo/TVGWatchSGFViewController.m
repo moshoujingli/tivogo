@@ -53,7 +53,7 @@
     
     int max;
     if ([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"ja"]) {
-        max=35;
+        max=67;
     }else if([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"zhcn"]){
         max=40;
     }else if([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"zhtw"]){

@@ -9,9 +9,15 @@
 #import "TVGSGFProperty.h"
 #include "sgftree.h"
 #define LABEL_TRIANGLE 33
+#define CUR_ENCODING ([NSLocalizedString(@"LanguageCode", nil) isEqualToString:@"ja"]?NSShiftJISStringEncoding:NSUTF8StringEncoding)
+
+@interface TVGSGFProperty ()
+@end
+
 @implementation TVGSGFProperty
 @synthesize propName=_propName;
 @synthesize propValue=_propValue;
+
 -(TVGMove *)getMoveInfoofPlayer:(short)player{
     TVGMove * move = [[TVGMove alloc]init];
     move.player = player;
@@ -43,15 +49,15 @@
                 break;
             case SGFC:
                 _propName=@"comment";
-                _propValue=[[NSString alloc]initWithUTF8String:self.rawValue];
+                _propValue=[[NSString alloc]initWithBytes:self.rawValue length:strlen(self.rawValue) encoding:CUR_ENCODING];
                 break;
             case SGFPB:
                 _propName=@"player_b";
-                _propValue=[[NSString alloc]initWithUTF8String:self.rawValue];
+                _propValue=[[NSString alloc]initWithBytes:self.rawValue length:strlen(self.rawValue) encoding:CUR_ENCODING];
                 break;
             case SGFPW:
                 _propName=@"player_w";
-                _propValue=[[NSString alloc]initWithUTF8String:self.rawValue];
+                _propValue=[[NSString alloc]initWithBytes:self.rawValue length:strlen(self.rawValue) encoding:CUR_ENCODING];
                 break;
             case SGFTR:
                 _propName=@"label";
