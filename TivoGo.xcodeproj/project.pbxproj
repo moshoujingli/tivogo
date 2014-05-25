@@ -15,6 +15,8 @@
 		6A1BCDF118F6DA4E0071B7C1 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1BCDF018F6DA4E0071B7C1 /* prev.png */; };
 		6A203AAD192A508D005E4C88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A203AAF192A508D005E4C88 /* InfoPlist.strings */; };
 		6A203AB3192A5934005E4C88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A203AB5192A5934005E4C88 /* Localizable.strings */; };
+		6A3A2FCF19319D1200983D68 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A2FCE19319D1200983D68 /* UIView+Toast.m */; };
+		6A3A2FD119319D8C00983D68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3A2FD019319D8C00983D68 /* QuartzCore.framework */; };
 		6A42BB8F187996810029889D /* game_setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42BB8E187996810029889D /* game_setting.plist */; };
 		6A5CC7901868676000D14DBE /* TVGPrintInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */; };
 		6A6CF764192A4CB300E53F48 /* TivoGo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF763192A4CB300E53F48 /* TivoGo-Info.plist */; };
@@ -99,6 +101,9 @@
 		6A1BCDF018F6DA4E0071B7C1 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
 		6A203AB0192A5092005E4C88 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A203AB6192A5937005E4C88 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A3A2FCD19319D1200983D68 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		6A3A2FCE19319D1200983D68 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		6A3A2FD019319D8C00983D68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6A42BB8E187996810029889D /* game_setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = game_setting.plist; sourceTree = "<group>"; };
 		6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVGPrintInfoTest.m; sourceTree = "<group>"; };
 		6A6CF75E192977ED00E53F48 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3A2FD119319D8C00983D68 /* QuartzCore.framework in Frameworks */,
 				6ABA9A3618B0CB81006A0434 /* AVFoundation.framework in Frameworks */,
 				6A8664E518537AA4005D5944 /* gnugo.a in Frameworks */,
 				6AB45C24183D1E3200FB6D2A /* CoreGraphics.framework in Frameworks */,
@@ -220,6 +226,8 @@
 				6A8664DC184E0E4F005D5944 /* TVGWatchSGFViewController.m */,
 				6AF5A5AB18EFFD9F0019BE36 /* UIImage+Tint.h */,
 				6AF5A5AC18EFFD9F0019BE36 /* UIImage+Tint.m */,
+				6A3A2FCD19319D1200983D68 /* UIView+Toast.h */,
+				6A3A2FCE19319D1200983D68 /* UIView+Toast.m */,
 			);
 			name = uicomp;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 		6AB45C20183D1E3200FB6D2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A3A2FD019319D8C00983D68 /* QuartzCore.framework */,
 				6A19060F191FAED80066339E /* libcommonCrypto.dylib */,
 				6ABA9A3518B0CB81006A0434 /* AVFoundation.framework */,
 				6A8664E418537AA4005D5944 /* gnugo.a */,
@@ -542,6 +551,7 @@
 				6AF5A5AD18EFFD9F0019BE36 /* UIImage+Tint.m in Sources */,
 				6AB45C3B183D1E3200FB6D2A /* TVGMainPageViewController.m in Sources */,
 				6AC822B8187711F600AF1C74 /* TVGSettingViewController.m in Sources */,
+				6A3A2FCF19319D1200983D68 /* UIView+Toast.m in Sources */,
 				6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */,
 				6AB45C32183D1E3200FB6D2A /* TVGAppDelegate.m in Sources */,
 				6A8664D7184B9CFF005D5944 /* TVGMove.m in Sources */,

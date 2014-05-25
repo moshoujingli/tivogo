@@ -161,6 +161,7 @@
 }
 - (IBAction)retractPushed:(UIButton *)sender {
     if (self.isThingking) {
+        [self.view makeToast:NSLocalizedString(@"isThinking", nil) duration:1 position: [NSValue valueWithCGPoint:CGPointMake(933-50, 768/2)]];
         return;
     }
     if (self.isSingle) {
@@ -365,6 +366,10 @@
 }
 
 - (IBAction)backPushed:(UIButton *)sender {
+    if (self.isThingking) {
+        [self.view makeToast:NSLocalizedString(@"isThinking", nil) duration:1 position: [NSValue valueWithCGPoint:CGPointMake(933-65, 768/2)]];
+        return;
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.thinkThread cancel];
 
@@ -402,6 +407,7 @@
         [self.saveData getBytes: _timeCounters range:NSMakeRange(400*sizeof(int), 3*sizeof(NSTimeInterval))];
         
         [self.saveData getBytes:&_whoPlayThisMove range:NSMakeRange(400*sizeof(int)+3*sizeof(NSTimeInterval), sizeof(_whoPlayThisMove))];
+        _whoPlayThisMove = to_paly;
         self.timer  = [[NSDate date]timeIntervalSince1970];
         self.timerTic = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refreshTimerLabel) userInfo:nil repeats:YES];
         short isComputerPlay=0;

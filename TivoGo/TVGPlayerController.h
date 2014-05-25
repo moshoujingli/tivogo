@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <gnugo.h>
 #import "TVGBoardView.h"
+#import "UIView+Toast.h"
 #import <AVFoundation/AVFoundation.h>
 @interface TVGPlayerController : UIViewController<AVAudioPlayerDelegate,RemoveDelegate, UIAlertViewDelegate >
 @property (weak, nonatomic) IBOutlet TVGBoardView *board;
