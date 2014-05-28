@@ -57,10 +57,10 @@
     if(do_play) {
         //change time counter
         AudioServicesPlaySystemSound(self.makePieceSound);
-        _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
         [self refreshTimerLabel];
         self.stepRecord[self.stepCount++]=POS(pos.x, pos.y);
         [self saveGame];
+        _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
         if (self.isSingle) {
             self.isThingking=YES;
             self.thinkThread = [[NSThread alloc]initWithTarget:self selector:@selector(getMove) object:nil];
@@ -127,6 +127,8 @@
     self.isThingking=NO;
     AudioServicesPlaySystemSound(self.makePieceSound);
     self.stepRecord[self.stepCount++]=move.intValue;
+    [self saveGame];
+
 }
 
 -(void)getMove{
