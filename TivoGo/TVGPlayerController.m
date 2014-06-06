@@ -61,6 +61,7 @@
         self.stepRecord[self.stepCount++]=POS(pos.x, pos.y);
         [self saveGame];
         _whoPlayThisMove=OTHER_COLOR(_whoPlayThisMove);
+        [self refreshTimerLabel];
         if (self.isSingle) {
             self.isThingking=YES;
             self.thinkThread = [[NSThread alloc]initWithTarget:self selector:@selector(getMove) object:nil];
