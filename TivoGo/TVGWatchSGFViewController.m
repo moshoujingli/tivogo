@@ -103,6 +103,10 @@
     // Change search bar text color
     searchField.textColor = [UIColor colorWithRed:14/255.0 green:133/255.0 blue:251/255.0 alpha:1.0];
     self.searchSideBar  =[ [NSArray alloc]initWithObjects:self.sgfTable,self.sgfSearchBar, nil];
+    
+    self.sgfTable.translatesAutoresizingMaskIntoConstraints=YES;
+    self.sgfSearchBar.translatesAutoresizingMaskIntoConstraints=YES;
+    
     self.sideSpec = self.sgfSearchBar.frame.origin.x;
     self.lookStatus = NO;
     [self.sgfFileList setBackgroundColor:[UIColor clearColor]];
