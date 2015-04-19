@@ -19,7 +19,6 @@
 		6A3A2FD119319D8C00983D68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3A2FD019319D8C00983D68 /* QuartzCore.framework */; };
 		6A42BB8F187996810029889D /* game_setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42BB8E187996810029889D /* game_setting.plist */; };
 		6A5CC7901868676000D14DBE /* TVGPrintInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CC78F1868676000D14DBE /* TVGPrintInfoTest.m */; };
-		6A6CF764192A4CB300E53F48 /* TivoGo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A6CF763192A4CB300E53F48 /* TivoGo-Info.plist */; };
 		6A8664BD1849DA21005D5944 /* TVGSGFNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BC1849DA21005D5944 /* TVGSGFNode.m */; };
 		6A8664C01849DA34005D5944 /* TVGSGFProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664BF1849DA34005D5944 /* TVGSGFProperty.m */; };
 		6A8664C21849E17F005D5944 /* TVGSGFTreeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8664C11849E17F005D5944 /* TVGSGFTreeTest.m */; };
@@ -450,7 +449,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TVG;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = BiXiaopeng;
 				TargetAttributes = {
 					6AB45C1D183D1E3200FB6D2A = {
@@ -516,7 +515,6 @@
 				6ABA9A3B18B1067F006A0434 /* mount.mp3 in Resources */,
 				6A11A31918FABB02002508BE /* icon@2x.png in Resources */,
 				6ABA9A3318B0CB54006A0434 /* kill.wav in Resources */,
-				6A6CF764192A4CB300E53F48 /* TivoGo-Info.plist in Resources */,
 				6AB0F402192D096600F03D9E /* sgf in Resources */,
 				6AF5A5BB18F198E50019BE36 /* play-128.png in Resources */,
 				6ABA9A3A18B1067F006A0434 /* city.mp3 in Resources */,
@@ -642,7 +640,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -672,10 +669,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -683,7 +680,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -711,7 +707,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

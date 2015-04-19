@@ -12,7 +12,7 @@
 
 @interface TVGSGFTree : NSObject
 @property (nonatomic,readonly)NSMutableDictionary *gameInfo;
--(TVGSGFNode *)getNodeById:(int) nodeId;
+-(TVGSGFNode *)getNodeById:(NSUInteger) nodeId;
 -(TVGSGFNode *)getRootNode;
 -(TVGSGFTree *)initWithFile:(NSString *)filePath;
 -(int)close;

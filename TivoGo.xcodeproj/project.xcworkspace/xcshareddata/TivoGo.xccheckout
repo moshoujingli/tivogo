@@ -7,36 +7,36 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>7959FCA5-61D0-4698-84D2-75645CB42DB5</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TivoGo</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E924B011-5D3C-4E87-82F3-CBC379ACBCD4</key>
-		<string>ssh://masaker.com//home/git/repositories/iosgo.git</string>
-		<key>FE5D00D8-471C-42BE-AEFF-5E402D7CD5CB</key>
-		<string>ssh://github.com/moshoujingli/gnugo4ios.git</string>
+		<key>B6487649E70989B9BD81220E351923140248638F</key>
+		<string>masaker.com:/home/git/repositories/iosgo.git</string>
+		<key>D47F6C7E7DA07A09FD60927438674CC34FE469E2</key>
+		<string>github.com:moshoujingli/gnugo4ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TivoGo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E924B011-5D3C-4E87-82F3-CBC379ACBCD4</key>
+		<key>B6487649E70989B9BD81220E351923140248638F</key>
 		<string>../..</string>
-		<key>FE5D00D8-471C-42BE-AEFF-5E402D7CD5CB</key>
-		<string>../../../../../../go4ios</string>
+		<key>D47F6C7E7DA07A09FD60927438674CC34FE469E2</key>
+		<string>../../../go4ios</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://masaker.com//home/git/repositories/iosgo.git</string>
+	<string>masaker.com:/home/git/repositories/iosgo.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E924B011-5D3C-4E87-82F3-CBC379ACBCD4</string>
+	<string>B6487649E70989B9BD81220E351923140248638F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FE5D00D8-471C-42BE-AEFF-5E402D7CD5CB</string>
+			<string>D47F6C7E7DA07A09FD60927438674CC34FE469E2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>go4ios</string>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E924B011-5D3C-4E87-82F3-CBC379ACBCD4</string>
+			<string>B6487649E70989B9BD81220E351923140248638F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TivoGo</string>
 		</dict>

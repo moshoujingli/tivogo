@@ -153,7 +153,7 @@
 -(TVGSGFNode *)getRootNode{
     return [self getNodeById:0];
 }
--(TVGSGFNode *)getNodeById:(NSInteger)nodeId{
+-(TVGSGFNode *)getNodeById:(NSUInteger)nodeId{
     if (nodeId>=self.nodeTreeArray.count) {
         return nil;
     }
